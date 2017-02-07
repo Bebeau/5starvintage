@@ -1,0 +1,1 @@
+[12-Aug-2015 03:16:54 Europe/Moscow] PHP Fatal error:  Call to undefined function get_header() in /home/starvint/public_html/5starvintage.com/wp-content/themes/5starvintage/partials/plugins/tweet/callback.php on line 1

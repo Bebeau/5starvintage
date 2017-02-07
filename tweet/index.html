@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Image Tweet</title>
+<script language="javascript">
+
+function validate(){
+	var val = document.getElementById('img').value;
+	var val2 = document.getElementById('txt').value;
+	var msg = '';
+
+	if(val == '') {
+		msg+='Select An Image\n';
+	}
+
+	if(val2 == '') {
+	    msg+='Enter Your Tweet';
+	}
+	
+	if(msg != '') {
+		alert(msg);
+		return false;	
+	} else {
+		return true;
+	}
+}
+
+</script>
+</head>
+
+<body>
+<form method="post" action="start.php" enctype="multipart/form-data" onsubmit="FSV.initTweetValidate()" >
+	<div id="tweetWrap" class="clearfix">
+		<div id="imageDrop">
+			<span class="desc">Upload Image</span>
+			<input type="file" name="img" id="img"/>
+		</div>
+		<div id="tweetText">
+			<textarea type="text" name="txt" id="txt" maxlength="140" onkeyup="FSV.initCountChar(this)" placeholder="@5StarVintage..."></textarea>
+			<div id="charNum">140</div>
+		</div>
+	</div>
+	<input type="submit" name="sub" class="tweet" id="sub" value="Submit"/>
+</form>
+</body>
+</html>

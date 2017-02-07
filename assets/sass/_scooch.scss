@@ -1,0 +1,318 @@
+/*  Classes  on  outer  slideshow  wrapper:
+    either  NONE  or  'fraction'  or  'fraction'  +  one  of  'fraction1'...'fraction10'.
+        fraction  sets  box-sizing:  border-box,  so  that  padding  on  the  element  is  taken  out  ;
+    either  NONE  or  'center'  or  'right'
+
+*/
+
+// .m-arrow {
+//     width: 5%;
+//     height: 85%;
+//     display: block;
+//     z-index: 1000;
+//     margin: 0;
+//     position: absolute;
+//     top: 0;
+//     &.next {
+//         right: 0;
+//         &:before {
+//             content: "";
+//             display: block;
+//             position: absolute;
+//             height: 100%;
+//             width: 75%;
+//             left: 0;
+//             z-index: 9999;
+//             background: url('assets/img/main-right-arrow.png') no-repeat scroll left center / contain;
+//             @include transition(all, 0.2s, ease-in-out);
+//         }
+//         &:hover {
+//             &:before {
+//                 width: 80%;
+//                 @include transition(all, 0.2s, ease-in-out);
+//             }
+//         }
+//     }
+//     &.prev {
+//         left: 0;
+//         &:before {
+//             content: "";
+//             display: block;
+//             position: absolute;
+//             height: 100%;
+//             width: 75%;
+//             right: 0;
+//             z-index: 9999;
+//             background: url('assets/img/main-left-arrow.png') no-repeat scroll right center / contain;
+//             @include transition(all, 0.2s, ease-in-out);
+//         }
+//         &:hover {
+//             &:before {
+//                 width: 80%;
+//                 @include transition(all, 0.2s, ease-in-out);
+//             }
+//         }
+//     }
+// }
+.m-arrow {
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    width: 50px;
+    i {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin: -20px 0 0;
+        font-size: 32pt;
+        color: $Teal;
+        text-align: center;
+        width: 100%;
+    }
+    &.next {
+        @include horizontal-gradient(transparent, rgba(0,0,0,0.25));
+        @include transform(translate3D(0,0,0));
+        @include transition(all, 0.2s, ease-in-out);
+        right: -100px;
+        &.in {
+            right: 0;
+        }
+        &:before {
+            display: none;
+        }
+        &:hover {
+            @include transition(all, 0.2s, ease-in-out);
+            @include horizontal-gradient(transparent, rgba(0,0,0,0.5));
+        }
+    }
+    &.prev {
+        @include horizontal-gradient(rgba(0,0,0,0.25), transparent);
+        @include transform(translate3D(0,0,0));
+        @include transition(all, 0.2s, ease-in-out);
+        left: -100px;
+        &.in {
+            left: 0;
+        }
+        &:before {
+            display: none;
+        }
+        &:hover {
+            @include transition(all, 0.2s, ease-in-out);
+            @include horizontal-gradient(rgba(0,0,0,0.5), transparent);
+        }
+    }
+}
+.m-scooch  {
+    position:  relative;
+    -webkit-font-smoothing: antialiased;
+    z-index: 100;
+    background: $White;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    &.m-left { 
+        text-align: left;
+    }
+    &.m-center {
+        text-align: center;
+    }
+    &.m-fluid {
+        .m-scooch-inner {
+            * {
+                width: 100%;
+                @include box-sizing(border-box);
+            }
+        }
+    }
+    &.m-scooch-thumbnails {
+        overflow: visible;
+        .m-scooch-inner {
+            text-align: center;
+        }
+    }
+    &.m-scooch-shop-brands {
+        margin: 0 auto;
+        .m-item {
+            width: 10%;
+        }
+    }
+    &.m-scooch-products {
+        position: relative;
+        .m-item {
+            width: 20%;
+            padding: 0 0 15px;
+            img {
+                padding: 15px;
+            }
+            .productinfo {
+                text-align: center;
+                display: block;
+                font-family: "Pathway Gothic One", sans-serif;
+                color: $Teal;
+                h4 {
+                    margin: 0;
+                }
+                * {
+                    display: block;
+                }
+            }
+        }
+    }
+    &.m-scooch-brands {
+        .m-item {
+            width: 25%;
+        }
+    }
+    &.m-scooch-categories {
+        .m-item {
+            width: 25%;
+            overflow: hidden;
+            background: $Teal;
+            h3 {
+                text-align: center;
+                display: block;
+                padding: 5px;
+                width: 100%;
+                z-index: 899;
+                font-family: "fauna one", sans-serif;
+                color: #fff;
+                font-size: 21px;
+                margin: 0;
+                @include vertical-align;
+                position: absolute;
+                margin: -15px 0 0;
+                @include scale(0);
+                @include transition(all, 0.2s, ease-in-out);
+            }
+            img {
+                position: relative;
+                display: block;
+                max-width: 100%;
+                @include scale(1);
+                @include transition(all, 0.2s, ease-in-out);
+            }
+            &:hover {
+                img {
+                    @include scale(1.2);
+                    @include opacity(0.25);
+                    @include transition(all, 0.2s, ease-in-out);
+                }
+                h3 {
+                    @include scale(1);
+                    @include transition(all, 0.2s, ease-in-out);
+                }
+            }
+        }
+    }
+    .scooch-title {
+        text-align: center;
+        vertical-align: middle;
+        background: $Teal;
+        a {
+            color: $White;
+        }
+        h2 {
+            display: inline-block;
+            margin: 15px 50px;
+            vertical-align: middle;
+        }
+        .arrow {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            vertical-align: middle;
+            i {
+                font-size: 24pt;
+                line-height: 50px;
+            }
+        }
+    }
+    &.m-scooch-categories {
+        .m-item {
+            width: 25%;
+        }
+    }
+    img  {
+        -ms-interpolation-mode:  bicubic;  
+    }
+    .m-item {
+        -webkit-transform: translate(0);
+        transform: translate(0); 
+    }
+    .m-scooch-inner  {
+        position:  relative;
+        white-space:  nowrap;
+        text-align:  left;
+        /*  Removes  inline-block  gaps  due  to  whitespace  */
+        font-size:  0;
+        /*  Configure  animations  */
+        -webkit-transition-property:  -webkit-transform;
+        -moz-transition-property:  -moz-transform;
+        -ms-transition-property:  -ms-transform;
+        -o-transition-property:  -o-transform;
+        transition-property:  transform;
+        /*  iOS  like  slide  timings  */
+        -webkit-transition-timing-function:  cubic-bezier(0.33,  0.66,  0.66,  1);
+        -moz-transition-timing-function:  cubic-bezier(0.33,  0.66,  0.66,  1);
+        -ms-transition-timing-function:  cubic-bezier(0.33,  0.66,  0.66,  1);
+        -o-transition-timing-function:  cubic-bezier(0.33,  0.66,  0.66,  1);
+        transition-timing-function:  cubic-bezier(0.33,  0.66,  0.66,  1);
+        -webkit-transition-duration:  0.5s;
+        -moz-transition-duration:  0.5s;
+        -ms-transition-duration:  0.5s;
+        -o-transition-duration:  0.5s;
+        transition-duration:  0.5s;
+        * {
+            display:  inline-block;
+            vertical-align:  top;
+            white-space:  normal;
+            /*  We  must  reset  the  font-size  here  */
+            font-size:  16px;  
+        }
+        &:hover {
+            cursor: move;
+        }
+    }
+}
+.m-center:not(.m-fluid)  >  .m-scooch-inner  {
+    display:  inline-block;
+    margin-right:  -20000px  !important;
+    margin-left:  0  !important; 
+    *  {
+        position:  relative;
+        left:  -20000px;
+        &:first-child  {
+            float:  left;
+            margin-right:  20000px;
+            left:  0;  
+        }
+        &:first-child:last-child  {
+            margin-right:  0;  
+        }
+        &:last-child  {
+            margin-right:  -30000px;  
+        }
+    } 
+}
+
+@media (max-width: $screen-sm-min) {
+    .m-scooch  {
+        &.m-scooch-products {
+            .m-item {
+                padding: 0 0 15px;
+                min-height: 100px;
+                border: none;
+                a {
+                    display: block;
+                }
+                .productinfo {
+                     h4.producttitle {
+                        color: $White;
+                    }
+                }
+            }
+        }
+    }
+}
