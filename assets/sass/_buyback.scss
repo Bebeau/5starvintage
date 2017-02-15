@@ -97,7 +97,8 @@ body {
 				li {
 					width: 150px;
 					height: 150px;
-					@include border-radius(50%);
+					@include border-top-radius(50%);
+					@include border-bottom-radius(50%);
 					background: $Teal;
 					display: block;
 					margin: 15px 0;
@@ -110,7 +111,7 @@ body {
 			.description {
 				height: 525px;
 				padding: 0 75px;
-				@include box-sizing(border-box);
+				box-sizing: border-box;
 				.desc {
 					margin: 15px 0 50px;
 				}
@@ -186,7 +187,7 @@ body {
 					border: 1px dashed $White;
 					height: 150px;
 					width: 100%;
-					@include opacity(0);
+					opacity: 0;
 					&#img {
 						position: absolute;
 						top: 0;
@@ -261,7 +262,7 @@ body {
 	}
 }
 
-@media (max-width: $screen-sm-max) {
+@media (max-width: 768px) {
 	#BuyBack {
 		h1, h2 {
 			background: none;

@@ -1,5 +1,4 @@
 <div id="sidebar">
-
-    <?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Single Post/Page Widgets')) ?>
-
+	<i class="fa fa-sliders"></i>
+    <?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Shop Widgets')) ?>
 </div>

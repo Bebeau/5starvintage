@@ -11,33 +11,37 @@ html {
 body{
 	background: url('assets/img/bg-pattern.png') repeat fixed top left $DarkBlue;
 	font-family: "Open Sans" , sans-serif;
-	&.woocommerce-page, &.page {
-		&:after {
-			content: "";
-			position: absolute;
-			background: url('assets/img/backgrounds/1.jpg') no-repeat scroll top / cover;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			z-index: 1;
-			@include opacity(0.5);
-		}
-	}
+	background-color: $DarkBlue;
 }
 #wrapper {
 	position: relative;
 	z-index: 2;
 }
 a {
+	color: $Teal;
 	&:hover {
 		text-decoration: none;
+		color: $Teal;
 	}
 }
 img {
 	max-width: 100%;
+}
+h1 {
+	text-align: center;
+	color: $Yellow;
+	font-family: "fauna one", sans-serif;
+	margin: 15px 0;
+	font-size: 26px;
+}
+.clearfix {
+	clear: both;
+	display: block;
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
 }
 .centered {
 	text-align: center;
@@ -64,7 +68,6 @@ img {
 .btn {
 	background: $LightBlue;
 	color: #fff;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 	border: none;
 	font-family: "Fauna One", sans-serif;
 	line-height: normal;
@@ -96,10 +99,10 @@ img {
 	display: none;
 	position: relative;
 	z-index: 9999;
-	@include transition(all, 0.25s, ease-out);
+	@include transition(all 0.25s $authenticMotion);
 	&:hover {
 		background: lighten($Yellow, 10%);
-		@include transition(all, 0.25s, ease-out);
+		@include transition(all 0.25s $authenticMotion);
 	}
 	.btn {
 		width: 90%;
@@ -108,15 +111,15 @@ img {
 		color: $Purp;
 		vertical-align: middle;
 		font-size: 16pt;
-		@include border-radius(5px);
-		@include transition(all, 0.25s, ease-out);
+		@include border-top-radius(5px);
+		@include border-bottom-radius(5px);
+		@include transition(all 0.25s $authenticMotion);
 		margin: 0 auto;
-		text-shadow: none;
 		position: relative;
 		left: 50px;
 		&:hover {
 			color: $LightPurp;
-			@include transition(all, 0.25s, ease-out);
+			@include transition(all 0.25s $authenticMotion);
 		}
 	}
 	i {
@@ -129,6 +132,32 @@ img {
 		&:hover {
 			cursor: pointer;
 		}
+	}
+}
+.outer {
+	/* W3C */
+	display: inline-flex !important;
+    box-pack: center !important;
+    box-align: center !important;
+	/* Safari, Opera, and Chrome */
+	display: -webkit-inline-flex !important;
+	-webkit-box-pack: center !important;
+	-webkit-box-align: center !important;
+	-webkit-align-items: center !important;
+	 /* Firefox */
+	display: -moz-inline-flexbox !important;
+	-moz-box-pack: center !important;
+	-moz-box-align: center !important;
+	-moz-align-items: center !important;
+	height: 100%;
+	width: 100%;
+	align-items: center !important;
+	position: relative;
+	z-index: 2;
+	.inner {
+		margin: auto 0;
+		width: 100%;
+		z-index: 3;
 	}
 }
 #HomeMenu {
@@ -158,527 +187,389 @@ img {
 		display: none;
 	}
 }
-.HomeHeader {
-	background: none;
-	position: absolute;
-	z-index: 1;
-	width: 90%;
-	height: 40px;
-	display: block;
-	margin: -10px 5% 0;
-	top: 50%;
-	@include opacity(0);
-	@include scale(1);
-	@include transition(all, 0.5s, ease-in-out);
-	font-family: "Fauna One", sans-serif;
-	color: $White;
-	left: 0;
-	background: $LightPurp;
-	&.active {
-		top: -100px;
-		@include opacity(1);
-		@include scale(1);
-		@include transition(all, 0.5s, ease-in-out);
-	}
-	.HeaderMenuLeft {
-		position: relative;
-		z-index: 2;
-		li {
-			a.parent {
-				display: block;
-				line-height: 40px;
-				text-align: center;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-				font-size: 10pt;
-				font-weight: bold;
-				color: $White;
-				@include transition(all, 0.2s, ease-in-out);
-			}
-			&:hover {
-				background: $Purp;
-				a.parent {
-					color: $Yellow;
-					cursor: pointer;
-					letter-spacing: 1.5px;
-					@include transition(all, 0.2s, ease-in-out);
-				}
-				.size-dropdown {
-					max-height: 100vh;
-					@include transition(all, 0.5s, ease-in-out);
-				}
-			}
-			.size-dropdown {
-				position: absolute;
-				display: block;
-				width: 100%;
-				top: 100%;
-				left: 0;
-				max-height: 0px;
-				overflow: hidden;
-				@include transition(all, 0.2s, ease-in-out);
-				ul {
-					background: $Purp;
-					padding: 10px;
-					@include box-sizing(border-box);
-					li {
-						display: block;
-						line-height: normal;
-						a {
-							display: block;
-							text-align: left;
-							text-transform: normal;
-							line-height: 30px;
-							letter-spacing: normal;
-							color: $White;
-							font-size: 10pt;
-							@include box-sizing(border-box);
-							@include transition(all, 0.2s, ease-in-out);
-							&:hover {
-								color: $Yellow;
-								cursor: pointer;
-								letter-spacing: 0.5px;
-								@include transition(all, 0.2s, ease-in-out);
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	.logo {
-		position: relative;
-		a {
-			position: absolute;
-			z-index: 2;
-			top: -75px;
-			@include transition(all, 0.25s, ease-in-out);
-			width: 100%;
-		}
-		img {
-			width: auto;
-			max-height: 200px;
-			margin: 0 auto;
-			display: block;
-			@include transition(all, 0.25s, ease-in-out);
-		}
-		&:hover {
-			img {
-				@include scale(1.02);
-				@include transition(all, 0.25s, ease-in-out);
-			}
-		}
-	}
-	.HeaderMenuRight {
-		position: relative;
-		z-index: 2;
-		li {
-			line-height: 40px;
-		}
-		.NavLogin {
-			text-align: center;
-			.ParentNav {
-				font-size: 10pt;
-				font-weight: bold;
-			}
-			a {
-				color: #fff;
-				@include transition(all, 0.2s, ease-in-out);
-				text-align: center;
-				line-height: 40px !important;
-				display: block;
-				&.btn {
-					line-height: 40px;
-					padding: 0 15px;
-					@include border-radius(0);
-					@include transition(all, 0.2s, ease-in-out);
-					&:hover {
-						background: $OffBlack;
-						cursor: pointer;
-						@include transition(all, 0.2s, ease-in-out);
-					}
-				}
-				&.loggedin {
-					font-weight: bold;
-					text-transform: uppercase;
-					font-size: 10pt;
-					padding: 0 10px 0 0;
-					&:hover {
-						color: $Yellow;
-					}
-				}
-				&:hover {
-					background: $Purp;
-					color: $Yellow;
-					@include transition(all, 0.2s, ease-in-out);
-				}
-			}
-		}
-		.NavCart {
-			.ParentNav {
-				text-align: center;
-				@include transition(all, 0.2s, ease-in-out);
-				a {
-					display: block;
-					color: #fff;
-					font-size: 10pt;
-					font-weight: bold;
-					&:hover {
-						background: $Purp;
-						@include transition(all, 0.2s, ease-in-out);
-						cursor: pointer;
-						color: $Yellow;
-					}
-				}
-			}
-		}
-		.Bookmarks {
-			text-align: center;
-			a {
-				text-align: center;
-				vertical-align: middle; 
-				display: inline-block;
-				i {
-					color: $Purp;
-					width: 30px;
-					height: 40px;
-					display: block;
-					margin: 0 auto;
-					font-size: 12pt;
-					vertical-align: middle;
-					line-height: 40px;
-					@include transition(all, 0.2s, ease-in-out);
-				}
-				&:hover {
-					i {
-						color: $Yellow;
-						@include transition(all, 0.2s, ease-in-out);
-					}
-				}
-			}
-		}
-	}
-}
 #header {
 	background: none;
 	position: relative;
-	width: 90%;
 	height: 40px;
 	display: block;
-	margin: 75px 5% 25px;
-	top: 0;
-	@include scale(1);
-	@include transition(all, 0.5s, ease-in-out);
+	margin: 75px auto 0;
 	font-family: "Fauna One", sans-serif;
 	color: $White;
-	left: 0;
 	background: $LightPurp;
 	z-index: 999;
-	.container-fluid {
-		color: $White;
-		font-family: "fauna one", sans-serif;
-		font-size: 10pt;
-		letter-spacing: 1px;
-		line-height: 30px;
-		position: relative;
-		height: 40px;
-		.row {
-			height: 40px;
+	@include transform(scale(1));
+	.parent {
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		box-sizing: border-box;
+		&:first-child {
+			margin: 0;
 		}
-	}
-	.HeaderMenuLeft {
-		position: static;
-		z-index: 2;
-		li {
-			position: static;
-			a.parent {
-				display: block;
-				line-height: 40px;
-				text-align: center;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-				font-size: 10pt;
-				color: $White;
-				@include transition(all, 0.2s, ease-in-out);
+		a {
+			color: white;
+			line-height: 40px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+		&#social {
+			a {
+				margin: 0 5px;
+				color: darken($Purp, 15%);
 			}
-			&:hover {
-				background: $Purp;
-				a.parent {
-					color: $Yellow;
-					cursor: pointer;
-					letter-spacing: 1.5px;
-					@include transition(all, 0.2s, ease-in-out);
-				}
-				.dropdown {
-					max-height: 100vh;
-					@include transition(all, 0.5s, ease-in-out);
-				}
-			}
-			.dropdown {
-				position: absolute;
-				left: 0;
-				width: 100%;
-				background: $Purp;
-				@include box-sizing(border-box);
-				overflow: hidden;
-				max-height: 0px;
-				@include transition(all, 0.2s, ease-in-out);
-				ul {
-					padding: 50px;
-					@include box-sizing(border-box);
-					li {
-						display: inline-block;
-						width: 25%;
-						margin: 0 0 0 -4px;
-						line-height: normal;
-						a {
-							display: block;
-							text-align: left;
-							text-transform: normal;
-							line-height: 30px;
-							letter-spacing: normal;
-							color: $White;
-							@include box-sizing(border-box);
-							@include transition(all, 0.2s, ease-in-out);
-							&:hover {
-								color: $Yellow;
-								cursor: pointer;
-								letter-spacing: 0.5px;
-								@include transition(all, 0.2s, ease-in-out);
-							}
+		}
+		.dropdown {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			background: $Purp;
+			box-sizing: border-box;
+			overflow: hidden;
+			max-height: 0;
+			text-align: left;
+			ul {
+				padding: 50px 25px 25px;
+				box-sizing: border-box;
+				li {
+					display: inline-block;
+					width: 25%;
+					margin: 0 0 0 -4px;
+					line-height: normal;
+					vertical-align: top;
+					a {
+						display: block;
+						text-align: left;
+						text-transform: normal;
+						line-height: 30px;
+						letter-spacing: normal;
+						color: $White;
+						box-sizing: border-box;
+						@include transition(all 0.2s $authenticMotion);
+						&:hover {
+							color: $Yellow;
+							cursor: pointer !important;
+							letter-spacing: 0.5px;
+							@include transition(all  0.2s $authenticMotion);
 						}
 					}
 				}
 			}
 		}
+		&:hover {
+			.dropdown {
+				max-height: 100vh;
+				@include transition(all 0.5s $authenticMotion);
+			}
+		}
 	}
-	.logo {
+	#logo {
 		position: relative;
+		width: 175px;
 		a {
 			position: absolute;
 			z-index: 2;
 			top: -60px;
-			@include transition(all, 0.25s, ease-in-out);
+			left: 0;
 			width: 100%;
 		}
 		img {
-			width: 157px;
-			height: 150px;
+			min-width: 90%;
 			margin: 0 auto;
 			display: block;
-			@include transition(all, 0.25s, ease-in-out);
-		}
-		&:hover {
-			img {
-				@include scale(1.02);
-				@include transition(all, 0.25s, ease-in-out);
-			}
 		}
 	}
-	.HeaderMenuRight {
-		position: relative;
-		li {
-			line-height: 40px;
+	.rightside {
+		float: right;
+		#account {
+
 		}
-		.NavLogin {
-			text-align: center;
-			.ParentNav {
-				font-size: 10pt;
-			}
-			a {
-				color: #fff;
-				@include transition(all, 0.2s, ease-in-out);
-				text-align: center;
-				line-height: 40px !important;
-				display: block;
-				&.btn {
-					line-height: 40px;
-					padding: 0 15px;
-					@include border-radius(0);
-					@include transition(all, 0.2s, ease-in-out);
-					&:hover {
-						background: $OffBlack;
-						cursor: pointer;
-						@include transition(all, 0.2s, ease-in-out);
-					}
-				}
-				&.loggedin {
-					font-weight: bold;
-					text-transform: uppercase;
-					font-size: 10pt;
-					padding: 0 10px 0 0;
-					&:hover {
-						background: none;
-						color: $Yellow;
-					}
-				}
-			}
-			&:hover {
-				background: $Purp;
-				color: $Yellow;
-				@include transition(all, 0.2s, ease-in-out);
-			}
-		}
-		.NavCart {
-			.ParentNav {
-				text-align: center;
-				@include transition(all, 0.2s, ease-in-out);
-				a {
-					display: block;
-					color: #fff;
-					font-size: 10pt;
-					&:hover {
-						background: $Purp;
-						@include transition(all, 0.2s, ease-in-out);
-						cursor: pointer;
-						color: $Yellow;
-					}
-				}
-			}
-			.dropdown {
-				right: 50%;
-				width: 400px;
-				margin: 0 -200px 0 0;
-			}
-			.dropdown {
-				background: $OffBlack;
-				position: absolute;
-				z-index: 9999;
-				top: 40px;
-				width: 400px;
-				padding: 5px;
-				-webkit-box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				box-sizing: border-box;
-				text-align: left;
-				display: none;
-				padding: 25px;
-				.CartDetails {
-					.row{
-						margin: 10px 0 0;
-						font-family: "Open Sans", sans-serif;
-						letter-spacing: normal;
-						.col-md-10 {
-							margin-top: 15px;
-							position: relative;
-							div:last-child{
-								font-weight: bold;
-								font-size: 13px;
-								letter-spacing: 1px;
-							}
-						}
-					}
-					hr {
-						margin: 10px -5px;
-						border-top: 1px solid #111;
-						border-bottom: 1px solid #333;
-					}
-					.total {
-						font-size: 18px;
-						line-height: normal;
-						margin: 0;
-						.amount {
-							color: $Teal;
-						}
-					}
-					.empty {
-						text-align: center;
-						padding: 25px;
-						font-size: 18px;
-					}
-				}
-			}
-			&:hover {
-				.dropdown{
-					display: block;
-				}
-			}
-		}
-		.Bookmarks {
-			text-align: center;
-			a {
-				text-align: center;
-				vertical-align: middle; 
-				display: inline-block;
-				i {
-					color: $Purp;
-					width: 20px;
-					height: 40px;
-					display: block;
-					margin: 0 auto;
-					font-size: 12pt;
-					vertical-align: middle;
-					line-height: 40px;
-					@include transition(all, 0.2s, ease-in-out);
-				}
-				&:hover {
-					i {
-						color: $Yellow;
-						@include transition(all, 0.2s, ease-in-out);
-					}
-				}
-			}
+		#cart {
+			margin: 0 25px;
 		}
 	}
-	#MiniCart {
-		position: relative;
-		.checkout {
-			margin: 0;
-		}
-		h3 {
-			margin: 0 0 25px;
-		}
-		h4 {
-			font-size: 12px;
-			margin: 0;
-			font-family: "Open Sans", sans-serif;
-		}
-		.product-remove a {
-			position: absolute;
-			right: 5px;
-			top: 5px;
-			color: $Red;
-			padding: 5px 8px;
-			font-size: 18px;
-			line-height: normal;
-			@include transition(all, 0.25s, ease-in-out);
-			&:hover{
-				color: lighten($Red, 15%);
-				text-decoration: none;
-				@include transition(all, 0.25s, ease-in-out);
-			}
-		}
-		hr {
-			border-top: 1px solid #000;
-			border-bottom: 1px solid #444;
-			margin: 10px 0;
-		}
-		.total {
-			font-size: 16px;
-			.amount {
-				color: $Teal;
-				font-weight: bold;
-			}
-		}
-		img {
-			height: auto;
-		}
-		.buttons {
-			.checkout {
-				background: darken($LightBlue, 15%);
-				&:hover {
-					background: $Teal;
-				}
-			}
-			.view-cart{
-				background: lighten($OffBlack, 5%);
-				&:hover {
-					background: lighten($OffBlack, 10%);
-					color: #fff;
-				}
-			}
-		}
-	}
+	// .container-fluid {
+	// 	color: $White;
+	// 	font-family: "fauna one", sans-serif;
+	// 	font-size: 10pt;
+	// 	letter-spacing: 1px;
+	// 	line-height: 30px;
+	// 	position: relative;
+	// 	height: 40px;
+	// 	.row {
+	// 		height: 40px;
+	// 	}
+	// }
+	// .HeaderMenuLeft {
+	// 	position: static;
+	// 	z-index: 2;
+	// 	li {
+	// 		position: static;
+	// 		a.parent {
+	// 			display: block;
+	// 			line-height: 40px;
+	// 			text-align: center;
+	// 			text-transform: uppercase;
+	// 			letter-spacing: 1px;
+	// 			font-size: 10pt;
+	// 			color: $White;
+	// 			@include transition(all, 0.2s, ease-in-out);
+	// 		}
+	// 		&:hover {
+	// 			background: $Purp;
+	// 			a.parent {
+	// 				color: $Yellow;
+	// 				cursor: pointer;
+	// 				letter-spacing: 1.5px;
+	// 				@include transition(all, 0.2s, ease-in-out);
+	// 			}
+	// 			.dropdown {
+	// 				max-height: 100vh;
+	// 				@include transition(all, 0.5s, ease-in-out);
+	// 			}
+	// 		}
+	// 		.dropdown {
+	// 			position: absolute;
+	// 			left: 0;
+	// 			width: 100%;
+	// 			background: $Purp;
+	// 			box-sizing: border-box;
+	// 			overflow: hidden;
+	// 			max-height: 0px;
+	// 			@include transition(all, 0.2s, ease-in-out);
+	// 			ul {
+	// 				padding: 50px 25px 25px;
+	// 				box-sizing: border-box;
+	// 				li {
+	// 					display: inline-block;
+	// 					width: 25%;
+	// 					margin: 0 0 0 -4px;
+	// 					line-height: normal;
+	// 					a {
+	// 						display: block;
+	// 						text-align: left;
+	// 						text-transform: normal;
+	// 						line-height: 30px;
+	// 						letter-spacing: normal;
+	// 						color: $White;
+	// 						box-sizing: border-box;
+	// 						@include transition(all, 0.2s, ease-in-out);
+	// 						&:hover {
+	// 							color: $Yellow;
+	// 							cursor: pointer;
+	// 							letter-spacing: 0.5px;
+	// 							@include transition(all, 0.2s, ease-in-out);
+	// 						}
+	// 					}
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	// .HeaderMenuRight {
+	// 	position: relative;
+	// 	li {
+	// 		line-height: 40px;
+	// 	}
+	// 	.NavLogin {
+	// 		text-align: center;
+	// 		.ParentNav {
+	// 			font-size: 10pt;
+	// 		}
+	// 		a {
+	// 			color: #fff;
+	// 			@include transition(all, 0.2s, ease-in-out);
+	// 			text-align: center;
+	// 			line-height: 40px !important;
+	// 			display: block;
+	// 			&.btn {
+	// 				line-height: 40px;
+	// 				padding: 0 15px;
+	// 				@include border-top-radius(0);
+	//				@include border-bottom-radius(0);
+	// 				@include transition(all, 0.2s, ease-in-out);
+	// 				&:hover {
+	// 					background: $OffBlack;
+	// 					cursor: pointer;
+	// 					@include transition(all, 0.2s, ease-in-out);
+	// 				}
+	// 			}
+	// 			&.loggedin {
+	// 				font-weight: bold;
+	// 				text-transform: uppercase;
+	// 				font-size: 10pt;
+	// 				padding: 0 10px 0 0;
+	// 				&:hover {
+	// 					background: none;
+	// 					color: $Yellow;
+	// 				}
+	// 			}
+	// 		}
+	// 		&:hover {
+	// 			background: $Purp;
+	// 			color: $Yellow;
+	// 			@include transition(all, 0.2s, ease-in-out);
+	// 		}
+	// 	}
+	// 	.NavCart {
+	// 		.ParentNav {
+	// 			text-align: center;
+	// 			@include transition(all, 0.2s, ease-in-out);
+	// 			a {
+	// 				display: block;
+	// 				color: #fff;
+	// 				font-size: 10pt;
+	// 				&:hover {
+	// 					background: $Purp;
+	// 					@include transition(all, 0.2s, ease-in-out);
+	// 					cursor: pointer;
+	// 					color: $Yellow;
+	// 				}
+	// 			}
+	// 		}
+	// 		.dropdown {
+	// 			right: 50%;
+	// 			width: 400px;
+	// 			margin: 0 -200px 0 0;
+	// 		}
+	// 		.dropdown {
+	// 			background: $OffBlack;
+	// 			position: absolute;
+	// 			z-index: 9999;
+	// 			top: 40px;
+	// 			width: 400px;
+	// 			padding: 5px;
+	// 			-webkit-box-sizing: border-box;
+	// 			-moz-box-sizing: border-box;
+	// 			box-sizing: border-box;
+	// 			text-align: left;
+	// 			display: none;
+	// 			padding: 25px;
+	// 			.CartDetails {
+	// 				.row{
+	// 					margin: 10px 0 0;
+	// 					font-family: "Open Sans", sans-serif;
+	// 					letter-spacing: normal;
+	// 					.col-md-10 {
+	// 						margin-top: 15px;
+	// 						position: relative;
+	// 						div:last-child{
+	// 							font-weight: bold;
+	// 							font-size: 13px;
+	// 							letter-spacing: 1px;
+	// 						}
+	// 					}
+	// 				}
+	// 				hr {
+	// 					margin: 10px -5px;
+	// 					border-top: 1px solid #111;
+	// 					border-bottom: 1px solid #333;
+	// 				}
+	// 				.total {
+	// 					font-size: 18px;
+	// 					line-height: normal;
+	// 					margin: 0;
+	// 					.amount {
+	// 						color: $Teal;
+	// 					}
+	// 				}
+	// 				.empty {
+	// 					text-align: center;
+	// 					padding: 25px;
+	// 					font-size: 18px;
+	// 				}
+	// 			}
+	// 		}
+	// 		&:hover {
+	// 			.dropdown{
+	// 				display: block;
+	// 			}
+	// 		}
+	// 	}
+	// 	.Bookmarks {
+	// 		text-align: center;
+	// 		a {
+	// 			text-align: center;
+	// 			vertical-align: middle; 
+	// 			display: inline-block;
+	// 			i {
+	// 				color: $Purp;
+	// 				width: 20px;
+	// 				height: 40px;
+	// 				display: block;
+	// 				margin: 0 auto;
+	// 				font-size: 12pt;
+	// 				vertical-align: middle;
+	// 				line-height: 40px;
+	// 				@include transition(all, 0.2s, ease-in-out);
+	// 			}
+	// 			&:hover {
+	// 				i {
+	// 					color: $Yellow;
+	// 					@include transition(all, 0.2s, ease-in-out);
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	// #MiniCart {
+	// 	position: relative;
+	// 	.checkout {
+	// 		margin: 0;
+	// 	}
+	// 	h3 {
+	// 		margin: 0 0 25px;
+	// 	}
+	// 	h4 {
+	// 		font-size: 12px;
+	// 		margin: 0;
+	// 		font-family: "Open Sans", sans-serif;
+	// 	}
+	// 	.product-remove a {
+	// 		position: absolute;
+	// 		right: 5px;
+	// 		top: 5px;
+	// 		color: $Red;
+	// 		padding: 5px 8px;
+	// 		font-size: 18px;
+	// 		line-height: normal;
+	// 		@include transition(all, 0.25s, ease-in-out);
+	// 		&:hover{
+	// 			color: lighten($Red, 15%);
+	// 			text-decoration: none;
+	// 			@include transition(all, 0.25s, ease-in-out);
+	// 		}
+	// 	}
+	// 	hr {
+	// 		border-top: 1px solid #000;
+	// 		border-bottom: 1px solid #444;
+	// 		margin: 10px 0;
+	// 	}
+	// 	.total {
+	// 		font-size: 16px;
+	// 		.amount {
+	// 			color: $Teal;
+	// 			font-weight: bold;
+	// 		}
+	// 	}
+	// 	img {
+	// 		height: auto;
+	// 	}
+	// 	.buttons {
+	// 		.checkout {
+	// 			background: darken($LightBlue, 15%);
+	// 			&:hover {
+	// 				background: $Teal;
+	// 			}
+	// 		}
+	// 		.view-cart{
+	// 			background: lighten($OffBlack, 5%);
+	// 			&:hover {
+	// 				background: lighten($OffBlack, 10%);
+	// 				color: #fff;
+	// 			}
+	// 		}
+	// 	}
+	// }
 }
 #BrandFilter {
 	.col-md-12 {
@@ -720,7 +611,8 @@ img {
 		background: lighten($Red, 55%);
 		margin: 5px 0;
 		padding: 5px 0;
-		@include border-radius(5px);
+		@include border-top-radius(5px);
+		@include border-bottom-radius(5px);
 		border: 1px solid $Red;
 		color: $Red;
 	}
@@ -734,12 +626,12 @@ img {
 	display: block;
 	color: $White;
 	background: $LightBlue;
-	@include transition(all, 0.2s, ease-in-out);
+	@include transition(all 0.2s $authenticMotion);
 	&:hover {
 		color: $White;
 		background: darken($LightBlue, 10%);
 		letter-spacing: 1.5px;
-		@include transition(all, 0.2s, ease-in-out);
+		@include transition(all 0.2s $authenticMotion);
 	}
 }
 #place_order {
@@ -750,18 +642,20 @@ img {
 	margin: 0 auto;
 	position: relative;
 	z-index: 100;
-	margin: 25px auto;
+	margin: 0 auto;
 	display: block;
 	color: $White;
 	background: $LightBlue;
 	font-size: 16pt;
-	@include border-radius(3px);
-	@include transition(all, 0.2s, ease-in-out);
+	font-family: "Fauna One", sans-serif;
+	letter-spacing: 1px;
+	@include border-top-radius(3px);
+	@include border-bottom-radius(3px);
+	@include transition(all 0.2s $authenticMotion);
 	&:hover {
 		color: $White;
 		background: darken($LightBlue, 10%);
-		letter-spacing: 1.5px;
-		@include transition(all, 0.2s, ease-in-out);
+		@include transition(all 0.2s $authenticMotion);
 	}
 }
 .homeSection {
@@ -785,77 +679,8 @@ img {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		@include opacity(0.5);
+		opacity: 0.5;
 	}
-	// .down {
-	// 	position: absolute;
-	// 	width: 100%;
-	// 	left: 50%;
-	// 	bottom: 10px;
-	// 	width: 200px;
-	// 	text-align: center;
-	// 	margin: 0 0 0 -100px;
-	// 	display: block;
-	// 	z-index: 99;
-	// 	color: $Yellow;
-	// 	text-transform: uppercase;
-	// 	letter-spacing: 2px;
-	// 	font-family: "Pathway Gothic One", sans-serif;
-	// 	font-weight: lighter;
-	// 	@include opacity(0);
-	// 	@include transition(all, 0.5s, ease-in-out);
-	// 	i {
-	// 		display: block;
-	// 		padding: 15px;
-	// 		line-height: 12pt;
-	// 	}
-	// 	&:hover {
-	// 		cursor: pointer;
-	// 	}
-	// 	&.active {
-	// 		@include opacity(1);
-	// 		@include transition(all, 0.5s, ease-in-out);
-	// 		i {
-	// 			@include animation(bounce);
-	// 			@include animation-duration(2s);
-	// 			@include animation-iteration-count(infinite);
-	// 		}
-	// 	}
-	// }
-	// .up {
-	// 	position: absolute;
-	// 	left: 50%;
-	// 	top: 10px;
-	// 	width: 200px;
-	// 	text-align: center;
-	// 	margin: 0 0 0 -100px;
-	// 	display: block;
-	// 	z-index: 99;
-	// 	color: $Yellow;
-	// 	text-transform: uppercase;
-	// 	letter-spacing: 2px;
-	// 	font-family: "Pathway Gothic One", sans-serif;
-	// 	font-weight: lighter;
-	// 	@include opacity(0);
-	// 	@include transition(all, 0.5s, ease-in-out);
-	// 	i {
-	// 		display: block;
-	// 		padding: 15px;
-	// 		line-height: 12pt;
-	// 	}
-	// 	&:hover {
-	// 		cursor: pointer;
-	// 	}
-	// 	&.active {
-	// 		@include opacity(1);
-	// 		@include transition(all, 0.5s, ease-in-out);
-	// 		i {
-	// 			@include animation(bounce);
-	// 			@include animation-duration(2s);
-	// 			@include animation-iteration-count(infinite);
-	// 		}
-	// 	}
-	// }
 	.inner {
 		position: relative;
 		.home-button {
@@ -865,12 +690,12 @@ img {
 			left: 50%;
 			margin: 0 0 0 -150px;
 			z-index: 1;
-			@include opacity(0);
-			@include transition(all, 0.5s, ease-in-out);
+			opacity: 0;
+			@include transition(all 0.5s $authenticMotion);
 			&.active {
 				bottom: -150px;
-				@include opacity(1);
-				@include transition(all, 0.5s, ease-in-out);
+				opacity: 1;
+				@include transition(all 0.5s $authenticMotion);
 			}
 		}
 	}
@@ -896,11 +721,11 @@ img {
 		letter-spacing: 1px;
 		display: block;
 		font-family: "Sarina", sans-serif;
-		@include transition(all, 0.2s, ease-in-out);
+		@include transition(all 0.2s $authenticMotion);
 		&:hover {
 			text-decoration: none;
 			background: #111;
-			@include transition(all, 0.2s, ease-in-out);
+			@include transition(all 0.2s $authenticMotion);
 			color: #fff;
 		}
 	}
@@ -950,7 +775,8 @@ img {
 		position: relative;
 		z-index: 999;
 		.input-group {
-			@include border-radius(10px 10px 10px 10px);
+			@include border-top-radius(10px);
+			@include border-bottom-radius(10px);
 			overflow: hidden;
 			border: 5px solid rgba(0,0,0,0.5);
 			input {
@@ -962,12 +788,10 @@ img {
 					background: $LightBlue;
 					font-family: "Sarina", sans-serif;
 					color: #fff;
-					text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
-					@include border-radius(0 5px 5px 0);
-					@include transition(all, 0.25s, ease-in-out);
+					@include transition(all 0.25s $authenticMotion);
 					&:hover {
 						background: lighten($LightBlue, 15%);
-						@include transition(all, 0.25s, ease-in-out);
+						@include transition(all 0.25s $authenticMotion);
 					}
 				}
 			}
@@ -1001,31 +825,8 @@ img {
 	letter-spacing: 1px;
 	font-family: "fauna one", sans-serif;
 	z-index: 10;
-	&:before {
-		content: "On Sale!";
-	}
 }
 .MainWrap{
-	h1 {
-		text-align: center;
-		color: $Yellow;
-		font-family: "fauna one", sans-serif;
-		margin: 50px 0;
-		background: url('assets/img/teal-slanted.png') repeat-x scroll left center;
-		font-size: 26px;
-		span {
-			background: $DarkBlue;
-			padding: 10px 15px;
-			border: 1px solid $Teal;
-			display: inline-block;
-			position: relative;
-			&.amount {
-				border: none;
-				padding: 0;
-				top: 0;
-			}
-		}
-	}
 	&#Contact {
 		margin: 0 auto 25px;
 		.PageWrap {
@@ -1091,17 +892,10 @@ img {
 }
 .PageWrap, .cartwrap {
 	background: #fff;
-	@include box-sizing(border-box);
-	@include border-radius(5px);
-	padding: 50px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
+	padding: 25px;
 	box-sizing: border-box;
-	-webkit-box-shadow: 0px 1px 5px #000;
 	position: relative;
-	min-height: 500px;
 	overflow: hidden;
-	margin-bottom: 25px;
 	&#FullWidth{
 		background: $DarkBlue;
 		color: $Teal;
@@ -1119,7 +913,6 @@ img {
 	}
 	h2 {
 		text-align: left;
-		text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 		font-family: "fauna one", sans-serif;
 		font-size: 24px;
 		&:first-child {
@@ -1217,14 +1010,14 @@ img {
 				position: absolute;
 				top: 50%;
 				margin: -15px 0 0;
-				@include transition(all, 0.25s, ease-in-out);
+				@include transition(all 0.25s $authenticMotion);
 				vertical-align: middle;
 				text-align: center;
 				display: block;
 				&:hover{
 					color: lighten($Red, 15%);
 					text-decoration: none;
-					@include transition(all, 0.25s, ease-in-out);
+					@include transition(all 0.25s $authenticMotion);
 				}
 			}
 		}
@@ -1281,7 +1074,6 @@ img {
 			text-align: center;
 			font-family: "Sarina", sans-serif;
 			font-weight: normal;
-			text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 			padding: 10px;
 			border-bottom: 5px solid rgba(0,0,0,0.25);
 			margin: 0;
@@ -1303,7 +1095,6 @@ img {
 				border: none;
 				display: inline-block;
 				color: $Teal;
-				text-shadow: none;
 				padding: 15px 0;
 				&:before {
 					background: none;
@@ -1327,7 +1118,6 @@ img {
 			padding: 0;
 			list-style: none;
 			overflow: hidden;
-			@include border-radius(5px 0 0 5px);
 			li {
 				border-bottom: 1px solid #ccc;
 				border-top: 1px solid #fff;
@@ -1372,14 +1162,12 @@ img {
 						padding: 0;
 						img {
 							opacity: 0.75;
-							filter: alpha(opacity=75);
-							@include transition(all, 0.2s, ease-in-out);
+							@include transition(all 0.2s $authenticMotion);
 						}
 						&:hover {
 							img {
 								opacity: 1;
-								filter: alpha(opacity=100);
-								@include transition(all, 0.2s, ease-in-out);
+								@include transition(all 0.2s $authenticMotion);
 							}
 						}
 					}
@@ -1391,7 +1179,6 @@ img {
 			padding: 0;
 			list-style: none;
 			overflow: hidden;
-			@include border-radius(5px 0 0 5px);
 			.row{
 				margin: 0;
 				padding: 0;
@@ -1428,8 +1215,6 @@ img {
 						font-family: "sarina", sans-serif;
 						background: $LightBlue;
 						opacity: 0.9;
-						filter: alpha(opacity=90);
-						text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 						font-size: 24px;
 						.amount {
 							margin: 55px 0 0 0;
@@ -1458,11 +1243,12 @@ img {
 .payment_methods {
 	background: darken($White, 5%);
 	border: 1px solid darken($White, 10%);
-	@include border-radius(5px);
+	@include border-top-radius(5px);
+	@include border-bottom-radius(5px);
 	li {
 		border-bottom: 1px solid #ccc;
 		padding: 15px;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 		&:last-child {
 			border: none;
 		}
@@ -1485,7 +1271,8 @@ img {
 #customer_details {
 	padding: 15px;
 	background: darken($White, 5%);
-	@include border-radius(5px);
+	@include border-top-radius(5px);
+	@include border-bottom-radius(5px);
 	border: 1px solid darken($White, 10%);
 	.create-account {
 		display: none;
@@ -1535,7 +1322,8 @@ img {
 		font-size: 12pt;
 		font-weight: norma;
 		letter-spacing: normal;
-		@include border-radius(5px);
+		@include border-top-radius(5px);
+		@include border-bottom-radius(5px);
 		&:hover {
 			cursor: pointer;
 		}
@@ -1579,7 +1367,6 @@ img {
 	padding-left: 0;
 	#sidebar {
 		.widget {
-			@include border-radius(0 5px 5px 0);
 			h3{
 				&:before{
 					content:"";
@@ -1599,7 +1386,6 @@ img {
 	margin: 25px 0;
 	#sidebar {
 		.widget {
-			@include border-radius(5px 0 0 5px);
 			h3{
 				&:before{
 					content:"";
@@ -1623,19 +1409,19 @@ img {
 			border-bottom: 1px solid #ebebeb;
 			padding: 15px 15px 15px;
 			position: relative;
-			@include transition(all, 0.25s, ease-in-out);
+			@include transition(all 0.25s $authenticMotion);
 			h2 {
 				color: $Purp;
-				@include transition(all, 0.25s, ease-in-out);
+				@include transition(all 0.25s $authenticMotion);
 			}
 			&:hover {
 				background: #fbfbfb;
-				@include transition(all, 0.25s, ease-in-out);
+				@include transition(all 0.25s $authenticMotion);
 				.row {
 					.col-md-8 {
 						h2 {
 							color: $Teal;
-							@include transition(all, 0.25s, ease-in-out);
+							@include transition(all 0.25s $authenticMotion);
 						}
 					}
 				}
@@ -1669,7 +1455,6 @@ img {
 						padding: 0;
 						font-family: "fauna one", sans-serif;
 						font-size: 21px;
-						text-shadow: none;
 						color: $Purp;
 					}
 					.meta {
@@ -1688,7 +1473,6 @@ img {
 #SinglePage {
 	h2 {
 		color: $Purp;
-		text-shadow: none;
 	}
 }
 img {
@@ -1706,30 +1490,25 @@ img {
 			li{
 				margin-bottom: 0;
 				border: 3px solid #000;
-				@include border-radius(5px 5px 5px 5px);
+				@include border-top-radius(5px);
+				@include border-bottom-radius(5px);
 				a {
 					color: #fff;
 					font-family: "Pathway Gothic One", sans-serif;
 					h5{
 						font-size: 16px;
-						text-shadow: none;
 						background: $Purp;
 						margin: 0;
 						line-height: 35px;
 						border-top: 1px solid $DarkBlue;
-						text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 					}
 					&:hover {
 						text-decoration: none;
 						h5 {
 							background: $LightBlue;
-							-webkit-transition: 0.25s;
-							-moz-transition: 0.25s;
-							transition: 0.25s;
 						}
 						img {
 							opacity: 0.75;
-							filter: alpha(opacity=75);
 						}
 					}
 				}
@@ -1783,36 +1562,50 @@ img {
 footer {
 	background: $LightBlue;
 	color: #fff;
-	margin: 10px 0 0 0;
-	padding: 25px 0 50px 0;
-	border-top: 2px solid #000;
+	margin: 50px 0 0;
+	padding: 25px 0;
 	position: relative;
 	z-index: 2;
-	h3 {
-		font-family: "Fauna One", sans-serif;
-		font-size: 18px;
-		white-space: nowrap;
-		text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
-	}
-	hr {
-		border-top: 1px solid #1998d9;
-		border-bottom: none;
+	#footerSocial {
+		text-align: center;
+		margin-bottom: 15px;
+		a {
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+			background: lighten($DarkBlue, 15%);
+			@include border-top-radius(50%);
+			@include border-bottom-radius(50%);
+			i {
+				color: $LightBlue;
+				line-height: 35px;
+			}
+		}
 	}
 	ul {
+		text-align: center;
 		li {
+			display: inline-block;
 			a {
 				color: lighten($DarkBlue, 15%);
 				font-size: 12px;
 				letter-spacing: 1px;
-				@include transition(all, 0.25s, ease-in-out);
+				border-right: 1px solid darken($LightBlue, 5%);
+				padding: 0 10px;
+				@include transition(all 0.25s $authenticMotion);
 				&:hover {
 					margin-left: 5px;
 					text-decoration: none;
 					color: darken($LightBlue, 45%);
-					@include transition(all, 0.25s, ease-in-out);
+					@include transition(all 0.25s $authenticMotion);
 					i {
 						color: darken($LightBlue, 45%);
 					}
+				}
+			}
+			&:last-child {
+				a {
+					border-right: none;
 				}
 			}
 			i {
@@ -1823,18 +1616,11 @@ footer {
 			}
 		}
 	}
-	#about {
-		p {
-			font-size: 13px;
-			color: darken($LightBlue, 25%);
-			letter-spacing: 1px;
-		}
-	}
-	#payment{
+	#weaccept{
 		font-family: "Sarina", sans-serif;
 		font-size: 28px;
-		margin: 25px 0;
-		text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+		margin: 0 0 25px;
+		text-align: center;
 	}
 	#legal {
 		font-size: 10px;
@@ -1843,10 +1629,10 @@ footer {
 		color: darken($LightBlue, 15%);
 		a {
 			color: darken($LightBlue, 45%);
-			@include transition(all, 0.25s, ease-in-out);
+			@include transition(all 0.25s $authenticMotion);
 			&:hover {
 				color: $LightPurp;
-				@include transition(all, 0.25s, ease-in-out);
+				@include transition(all 0.25s $authenticMotion);
 			}
 		}
 	}
@@ -1865,7 +1651,6 @@ footer {
 			font-size: 24px;
 			margin: 0 0 10px;
 			padding: 5px 10px;
-			text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 		}
 		form {
 			padding: 25px;
@@ -1884,9 +1669,9 @@ footer {
 			.button {
 				background: $LightBlue;
 				color: #fff;
-				text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 				border: none;
-				@include border-radius(0);
+				@include border-top-radius(0);
+				@include border-bottom-radius(0);
 				font-family: "Fauna One", sans-serif;
 				&:hover {
 					background: $Teal;
@@ -1925,9 +1710,9 @@ footer {
 			.button {
 				background: $LightBlue;
 				color: #fff;
-				text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 				border: none;
-				@include border-radius(0);
+				@include border-top-radius(0);
+				@include border-bottom-radius(0);
 				font-family: "Fauna One", sans-serif;
 				&:hover {
 					background: $Teal;
@@ -1941,23 +1726,14 @@ footer {
 	&#EditAddress {
 		margin-bottom: 75px;
 		.col-md-8 {
-			background: $DarkBlue;
-			color: #fff;
-			border: 2px solid #000;
 			h3 {
-				background: $Teal;
-				color: #fff;
-				font-family: "Sarina", sans-serif;
-				text-align: center;
-				font-weight: normal;
-				font-size: 24px;
-				margin: -15px -30px 0;
-				padding: 15px 10px;
-				text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+				color: $Yellow;
 			}
-
 			form {
 				padding: 15px;
+				background: $DarkBlue;
+				color: #fff;
+				border: 2px solid #000;
 				.form-row {
 					margin: 15px 0;
 					padding: 0;
@@ -2021,7 +1797,6 @@ footer {
 				.btn {
 					background: $LightBlue;
 					color: #fff;
-					text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 					border: none;
 					font-family: "Fauna One", sans-serif;
 					margin: 15px auto 25px;
@@ -2069,9 +1844,9 @@ footer {
 					a {
 						background: darken($Teal, 10%);
 						color: #fff;
-						text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 						border: none;
-						@include border-radius(0);
+						@include border-top-radius(0);
+						@include border-bottom-radius(0);
 						font-family: "Fauna One", sans-serif;
 						margin: 0;
 						line-height: 50px;
@@ -2091,7 +1866,6 @@ footer {
 				font-weight: normal;
 				font-size: 24px;
 				padding: 5px 10px;
-				text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 				border-bottom: 1px solid #000;
 			}
 			table {
@@ -2138,129 +1912,25 @@ footer {
 .shipping-calculator-button {
 	display: none;
 }
-#CartTotal {
-	background: #ebebeb;
-	color: #666;
-	border: 2px solid #000;
-	margin: 25px 0 0 0;
-	position: relative;
-	@include border-radius(0 5px 5px 0);
-	h3 {
-		background: $Teal;
-		color: #fff;
-		font-family: "Sarina", sans-serif;
-		text-align: center;
-		font-weight: normal;
-		font-size: 24px;
-		margin: 0 0;
-		padding: 5px 10px;
-		text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
-		border-bottom: 5px solid rgba(0,0,0,0.25);
-		&:before{
-			content:"";
-			background: url('assets/img/sidebar-shadow.png') repeat-y scroll top right;
-			position: absolute;
-			height: 100%;
-			width: 9px;
-			top: 0;
-			left: 0;
-			z-index: 100;
-		}
-	}
-	.coupon {
-		h3 {
-			background: none;
-			border: none;
-			font-family: "Fauna One", sans-serif;
-			color: $DarkBlue;
-			letter-spacing: normal;
-			font-size: 14pt;
-			text-shadow: 0px 0px 0px;
-			text-align: left;
-		}
-	}
-	.detailswrap{
-		padding: 25px;
-		.btn-primary{
-			background: $LightBlue;
-			color: #fff;
-			text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
-			border: none;
-			font-family: "Fauna One", sans-serif;
-			&:hover {
-				background: $Teal;
-				color: #fff;
-			}
-		}
-		.shipping-calculator-button {
-			margin: 8px 0 0 0;
-			display: none;
-		}
-	}
-	table {
-		border: none;
-		tr {
-			
-			th {
-				text-align: right;
-				line-height: 40px;
-				font-weight: normal;
-				white-space: nowrap;
-			}
-			td {
-				color: $DarkBlue;
-				background: #fff;
-				font-size: 16px;
-				line-height: 40px;
-				font-family: "Fauna One", sans-serif;
-			}
-			&.total {
-				td {
-					background: $LightBlue;
-					color: #fff;
-					text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
-					letter-spacing: 1px;
-				}
-			}
-		}
-	}
-	.coupon {
-		margin: 0 auto;
-		width: 85%;
-		.btn {
-			line-height: 22px;
-		}
-		
-	}
-	.btn-checkout {
-		margin: 25px auto;
-		width: 85%;
-	}
-}
 #ProductImage {
+	.onsale {
+		display: none;
+	}
 	.images {
 		.thumbnails {
-			margin: 0 0 25px;
+			margin: 0 -10px;
+			text-align: center;
 			a {
-				margin: 3px;
+				display: inline-block;
 				img {
-					border: 1px solid #ebebeb;
+					width: 100px;
+					height: auto;
 					padding: 5px;
-					-webkit-box-sizing: border-box;
-					-moz-box-sizing: border-box;
+					margin: 5px 0;
 					box-sizing: border-box;
 				}
 			}
 		}
-	}
-}
-.product-name {
-	vertical-align: middle;
-	font-family: "Pathway Gothic One", sans-serif;
-	font-size: 21px;
-	.col-md-8 {
-		margin-top: 50px;
-		text-align: left;
 	}
 }
 .cart-subtotal,
@@ -2381,103 +2051,14 @@ footer {
 						&:hover {
 							img {
 								opacity: 0.15;
-								filter: alpha(opacity=15);
-								transition: 0.5s;
 							}
 							h3 {
 								display: block;
 								color: #fff;
-								text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 							}
 						}
 					}
 				}
-			}
-		}
-	}
-}
-
-ul.products {
-	margin: 0;
-	li{
-		display: block;
-		@include box-sizing(border-box);
-		min-height: 400px;
-		position: relative;
-		border-right: 1px solid #ebebeb;
-		border-bottom: 1px solid #ebebeb;
-		padding: 5px;
-		&:last-child {
-			border-right: none;
-		}
-		h4.producttitle {
-			text-align: center;
-			font-family: "Pathway Gothic One", sans-serif;
-			font-size: 16px;
-		}
-		a {
-			@include transition(all, 0.25s, ease-in-out);
-			img {
-				margin: 10px auto;
-				display: block;
-				width: auto;
-				height: auto !important;
-				@include transition(all, 0.25s, ease-in-out);
-			}
-			h3 {
-				font-family: "Pathway Gothic One", sans-serif;
-				font-size: 16px;
-				line-height: normal;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				display: block;
-				text-align: center;
-				color: $DarkBlue;
-				letter-spacing: -1px;
-				margin: 0;
-			}
-			.star-rating {
-				display: none;
-			}
-			&:hover{
-				text-decoration: none;
-				color: $Teal;
-				@include transition(all, 0.25s, ease-in-out);
-				img {
-					opacity: 0.8;
-					filter: alpha(opacity=80);
-					@include transition(all, 0.25s, ease-in-out);
-				}
-			}
-		}
-		.button {
-			text-align: center;
-			display: block;
-			margin: 10px auto 0;
-			font-size: 10px;
-			background: $LightBlue;
-			color: #fff;
-			width: 55%;
-			letter-spacing: 1px;
-			text-transform: uppercase;
-			padding: 5px 10px;
-			&:hover {
-				background: $Teal;
-				color: #fff;
-			}
-		}
-		.onsale {
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-		.price {
-			del {
-				font-size: 12px;
-			}
-			ins {
-				text-decoration: none;
 			}
 		}
 	}

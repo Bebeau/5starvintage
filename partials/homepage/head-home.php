@@ -81,7 +81,7 @@
 						<div class="ParentNav">
 							<?php if (is_user_logged_in()) { 
 								global $current_user;
-									get_currentuserinfo();
+									wp_get_current_user();
 							?>
 							<a href="<?php echo site_url('/my-account'); ?>" class="loggedin">
 								My Account

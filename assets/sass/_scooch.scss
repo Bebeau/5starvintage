@@ -4,56 +4,6 @@
     either  NONE  or  'center'  or  'right'
 
 */
-
-// .m-arrow {
-//     width: 5%;
-//     height: 85%;
-//     display: block;
-//     z-index: 1000;
-//     margin: 0;
-//     position: absolute;
-//     top: 0;
-//     &.next {
-//         right: 0;
-//         &:before {
-//             content: "";
-//             display: block;
-//             position: absolute;
-//             height: 100%;
-//             width: 75%;
-//             left: 0;
-//             z-index: 9999;
-//             background: url('assets/img/main-right-arrow.png') no-repeat scroll left center / contain;
-//             @include transition(all, 0.2s, ease-in-out);
-//         }
-//         &:hover {
-//             &:before {
-//                 width: 80%;
-//                 @include transition(all, 0.2s, ease-in-out);
-//             }
-//         }
-//     }
-//     &.prev {
-//         left: 0;
-//         &:before {
-//             content: "";
-//             display: block;
-//             position: absolute;
-//             height: 100%;
-//             width: 75%;
-//             right: 0;
-//             z-index: 9999;
-//             background: url('assets/img/main-left-arrow.png') no-repeat scroll right center / contain;
-//             @include transition(all, 0.2s, ease-in-out);
-//         }
-//         &:hover {
-//             &:before {
-//                 width: 80%;
-//                 @include transition(all, 0.2s, ease-in-out);
-//             }
-//         }
-//     }
-// }
 .m-arrow {
     height: 100%;
     display: block;
@@ -72,35 +22,32 @@
         width: 100%;
     }
     &.next {
-        @include horizontal-gradient(transparent, rgba(0,0,0,0.25));
-        @include transform(translate3D(0,0,0));
-        @include transition(all, 0.2s, ease-in-out);
-        right: -100px;
+        right: 0;
+        @include transform(translate(100px, 0));
+        @include transition(all 0.2s $authenticMotion);
         &.in {
-            right: 0;
+            @include transform(translate(0, 0));
+            @include transition(all 0.2s $authenticMotion);
         }
         &:before {
             display: none;
         }
         &:hover {
-            @include transition(all, 0.2s, ease-in-out);
-            @include horizontal-gradient(transparent, rgba(0,0,0,0.5));
+            @include transition(all 0.2s $authenticMotion);
         }
     }
     &.prev {
-        @include horizontal-gradient(rgba(0,0,0,0.25), transparent);
-        @include transform(translate3D(0,0,0));
-        @include transition(all, 0.2s, ease-in-out);
-        left: -100px;
+        @include transform(translate(-100px, 0));
+        @include transition(all 0.2s $authenticMotion);
         &.in {
-            left: 0;
+            @include transform(translate(0, 0));
+            @include transition(all 0.2s $authenticMotion);
         }
         &:before {
             display: none;
         }
         &:hover {
-            @include transition(all, 0.2s, ease-in-out);
-            @include horizontal-gradient(rgba(0,0,0,0.5), transparent);
+            @include transition(all 0.2s $authenticMotion);
         }
     }
 }
@@ -122,11 +69,12 @@
         .m-scooch-inner {
             * {
                 width: 100%;
-                @include box-sizing(border-box);
+                box-sizing: border-box;
             }
         }
     }
     &.m-scooch-thumbnails {
+        background: #ebebeb;
         overflow: visible;
         .m-scooch-inner {
             text-align: center;
@@ -180,27 +128,26 @@
                 color: #fff;
                 font-size: 21px;
                 margin: 0;
-                @include vertical-align;
                 position: absolute;
                 margin: -15px 0 0;
-                @include scale(0);
+                @include transform(scale(0));
                 @include transition(all, 0.2s, ease-in-out);
             }
             img {
                 position: relative;
                 display: block;
                 max-width: 100%;
-                @include scale(1);
+                @include transform(scale(1));
                 @include transition(all, 0.2s, ease-in-out);
             }
             &:hover {
                 img {
-                    @include scale(1.2);
-                    @include opacity(0.25);
+                    @include transform(scale(1.2));
+                    opacity: 0.25;
                     @include transition(all, 0.2s, ease-in-out);
                 }
                 h3 {
-                    @include scale(1);
+                    @include transform(scale(1));
                     @include transition(all, 0.2s, ease-in-out);
                 }
             }
@@ -297,7 +244,7 @@
     } 
 }
 
-@media (max-width: $screen-sm-min) {
+@media (max-width: 768px) {
     .m-scooch  {
         &.m-scooch-products {
             .m-item {

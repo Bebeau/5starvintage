@@ -44,26 +44,20 @@
 		
 							<?php woocommerce_cart_totals(); ?>
 							
-							<?php if ( WC()->cart->coupons_enabled() ) { ?>
-								<div class="coupon">
-
-									<?php include_once(TEMPLATEPATH.'/woocommerce/checkout/form-coupon.php'); ?>
-
-									<?php do_action('woocommerce_cart_coupon'); ?>
-
-								</div>
-
-							<?php } ?>
-
-							<?php if( sizeof( $woocommerce->cart->get_cart() ) > 0 ) { ?>
-
-								<a href="<?php echo $woocommerce->cart->get_checkout_url(); ?>" class="btn btn-primary btn-large btn-block btn-checkout form-control">
-									Checkout <i class="fa fa-angle-double-right"></i>
-								</a>
-							
-							<?php } ?>
-
-							<?php // woocommerce_shipping_calculator(); ?>
+							<div class="lowerTotals">
+								<?php 
+								// if ( WC()->cart->coupons_enabled() ) {
+								// 	echo '<div class="coupon">';
+								// 		include_once(TEMPLATEPATH.'/woocommerce/checkout/form-coupon.php');
+								// 		do_action('woocommerce_cart_coupon');
+								// 	echo '</div>';
+								// }
+								if( sizeof( $woocommerce->cart->get_cart() ) > 0 ) { ?>
+									<a href="<?php echo $woocommerce->cart->get_checkout_url(); ?>" class="btn btn-primary btn-large btn-block btn-checkout form-control">
+										Checkout <i class="fa fa-angle-double-right"></i>
+									</a>
+								<?php } ?>
+							</div>
 					
 						</div>
 
@@ -72,12 +66,6 @@
 				</div>
 
 			</div>
-
-			<!-- <div class="visible-xs">
-				<div class="col-md-12">
-					<?php // do_action('woocommerce_cart_collaterals'); ?>
-				</div>
-			</div> -->
 
 		</div>
 

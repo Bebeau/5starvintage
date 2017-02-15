@@ -25,72 +25,99 @@ get_header('shop'); ?>
 <div class="Shop">
 	<div class="container MainWrap" id="ProductDetails">
 
-			<div class="row">
+		<div class="row">
 
-				<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php do_action( 'woocommerce_single_product_title' ); ?>
+				<?php do_action( 'woocommerce_single_product_title' ); ?>
 
-					<?php
-						/**
-						 * woocommerce_before_main_content hook
-						 *
-						 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-						 * @hooked woocommerce_breadcrumb - 20
-						 */
-						do_action( 'woocommerce_before_main_content' );
-					?>
+				<?php
+					/**
+					 * woocommerce_before_main_content hook
+					 *
+					 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+					 * @hooked woocommerce_breadcrumb - 20
+					 */
+					do_action( 'woocommerce_before_main_content' );
+				?>
 
-					<div class="col-md-8 PageWrap">
+				<div class="col-md-8 PageWrap">
 
-						<div id="SingleProduct">
-								
-							<?php wc_get_template_part( 'content', 'single-product' ); ?>
-
-						</div>
-
-						<?php
-							/**
-							 * woocommerce_after_main_content hook
-							 *
-							 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-							 */
-							do_action('woocommerce_after_main_content');
-						?>
+					<div id="SingleProduct">
+							
+						<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
 					</div>
 
-				<?php endwhile; // end of the loop. ?>
+					<?php
+						/**
+						 * woocommerce_after_main_content hook
+						 *
+						 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+						 */
+						do_action('woocommerce_after_main_content');
+					?>
+
+				</div>
+
+			<?php endwhile; // end of the loop. ?>
 
 			<div class="col-md-4" id="RightSidebar">
 
 				<div id="sidebar">
 				
-					<div class="widget">
+					<div class="widget" id="buyNow">
 						<h3>Buy Now!</h3>
 
 						<div class="PurchaseWrap">
 							<div id="purchase">
+								<?php echo '<div id="productPrice"> $'.$product->get_price().'</div>'; ?>
 								<?php include(TEMPLATEPATH . '/woocommerce/single-product/add-to-cart/simple.php'); ?>
 								<div class="clearfix"></div>
 							</div>
 						</div>
 
-						<div class="row ProductDetails">
-							<div class="col-md-12 description">
+						<div class="ProductDetails">
+							<div class="description">
 								<?php include(TEMPLATEPATH . '/woocommerce/single-product/tabs/description.php'); ?>
 							</div>
 						</div>
 						
 					</div>
 
-					<div class="widget visible-xs">
-						<div id="RelatedProducts">
-							<?php include(TEMPLATEPATH . '/woocommerce/single-product/related.php'); ?>
-						</div>
-					</div>
+					<div class="widget">
+						<?php
+						
+						global $post;
+						
+						$type = get_post_type( $post->ID );
+						
+						query_posts( array(
+								'post_type' => $type,
+								'posts_per_page' => 1,
+								'orderby' => 'rand',
+								'post__not_in' => array($post->ID)
+							)
+						);
 
-					<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Product Details Widgets')) ?>
+						if (have_posts()) {
+							echo '<div class="relatedProducts">';
+								while (have_posts()) { 
+									the_post();
+
+									$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID), 'large' );
+									echo '<a href="'.get_permalink().'">';
+										echo '<img src="'.$image[0].'" alt="" />';
+										echo '<h3>'.get_the_title().'</h3>';
+									echo '</a>';
+								}
+							echo '</div>';
+						}
+
+						wp_reset_query(); 
+
+						?>
+					</div>
 
 				</div>
 
