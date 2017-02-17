@@ -12,7 +12,7 @@ function theme_styles() {
 	wp_enqueue_script('jquery', 'http://code.jquery.com/jquery.min.js', '', null, false );
 
 	// Load Custom JS
-	wp_enqueue_script('custom', get_bloginfo( 'template_url' ) . '/assets/js/custom.min.js', array('jquery'), null, true);
+	wp_enqueue_script('custom', get_bloginfo( 'template_url' ) . '/assets/js/custom.js', array('jquery'), null, true);
 	wp_localize_script( 'custom', 'ajax', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'page' => 2,
