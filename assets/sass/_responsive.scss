@@ -743,16 +743,6 @@
   	}
 }
 @media (max-width: 991px) {
-	.post-type-archive-product, .tax-product_brand, .tax-product_cat {
-		#products {
-			ul.products {
-				li.type-product {
-					padding: 5px;
-					width: 25%;
-				}
-			}
-		}
-	}
 	#RightSidebar {
 		padding: 0 15px;
 		#sidebar {
@@ -768,6 +758,16 @@
 	.woocommerce-page #content div.product div.images, 
 	.woocommerce-page div.product div.images {
 		width: 100%;
+	}
+	.post-type-archive-product, .tax-product_brand, .tax-product_cat {
+		#products {
+			ul.products {
+				li.type-product {
+					padding: 5px;
+					width: 25%;
+				}
+			}
+		}
 	}
 }
 @media (min-width: 1024px) {

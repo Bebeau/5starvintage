@@ -4,7 +4,6 @@ global $post;
 
 function theme_styles() {
 	// Register & Load Styles
-	wp_enqueue_style( 'Bootstrap CSS', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', 'all' );
 	wp_enqueue_style( 'Style CSS', get_bloginfo( 'template_url' ) . '/style.css', 'all' );
 	
 	// Load default Wordpress jQuery
@@ -12,7 +11,7 @@ function theme_styles() {
 	wp_enqueue_script('jquery', 'http://code.jquery.com/jquery.min.js', '', null, false );
 
 	// Load Custom JS
-	wp_enqueue_script('custom', get_bloginfo( 'template_url' ) . '/assets/js/custom.js', array('jquery'), null, true);
+	wp_enqueue_script('custom', get_bloginfo( 'template_url' ) . '/assets/js/custom.min.js', array('jquery'), null, true);
 	wp_localize_script( 'custom', 'ajax', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'page' => 2,
@@ -252,5 +251,17 @@ function addPosts() {
     exit;
 
 }
+
+// Custom Scripting to Move JavaScript from the Head to the Footer
+function remove_head_scripts() { 
+   remove_action('wp_head', 'wp_print_scripts'); 
+   remove_action('wp_head', 'wp_print_head_scripts', 9); 
+   remove_action('wp_head', 'wp_enqueue_scripts', 1);
+
+   add_action('wp_footer', 'wp_print_scripts', 5);
+   add_action('wp_footer', 'wp_enqueue_scripts', 5);
+   add_action('wp_footer', 'wp_print_head_scripts', 5);
+} 
+add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );
 
 ?>

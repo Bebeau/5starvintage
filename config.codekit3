@@ -571,7 +571,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/bootstrap\/min\/collapse-min.js",
+		"oAP": "\/assets\/js\/bootstrap\/collapse.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -580,7 +580,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/bootstrap\/min\/collapse.min-min.js",
+		"oAP": "\/assets\/js\/bootstrap\/collapse.min.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -589,7 +589,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/bootstrap\/min\/dropdown-min.js",
+		"oAP": "\/assets\/js\/bootstrap\/dropdown.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -598,7 +598,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/bootstrap\/min\/dropdown.min-min.js",
+		"oAP": "\/assets\/js\/bootstrap\/dropdown.min.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -607,7 +607,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/bootstrap\/min\/modal-min.js",
+		"oAP": "\/assets\/js\/bootstrap\/modal.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -616,7 +616,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/bootstrap\/min\/modal.min-min.js",
+		"oAP": "\/assets\/js\/bootstrap\/modal.min.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -625,7 +625,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/bootstrap\/min\/tab-min.js",
+		"oAP": "\/assets\/js\/bootstrap\/tab.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -634,7 +634,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/bootstrap\/min\/tab.min-min.js",
+		"oAP": "\/assets\/js\/bootstrap\/tab.min.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -643,7 +643,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/bootstrap\/min\/tooltip-min.js",
+		"oAP": "\/assets\/js\/bootstrap\/tooltip.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -652,7 +652,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/bootstrap\/min\/tooltip.min-min.js",
+		"oAP": "\/assets\/js\/bootstrap\/tooltip.min.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -661,25 +661,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/min\/custom-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/assets\/js\/custom.min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/assets\/js\/min\/custom.min-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/assets\/js\/min\/custom-min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/assets\/js\/min\/min\/custom-min-min.js",
+		"oAP": "\/assets\/js\/custom.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -688,7 +670,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/scooch\/min\/scooch-min.js",
+		"oAP": "\/assets\/js\/scooch\/scooch.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -697,7 +679,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/scooch\/min\/scooch.min-min.js",
+		"oAP": "\/assets\/js\/scooch\/scooch.min.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -706,7 +688,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/validate\/min\/additional-methods-min.js",
+		"oAP": "\/assets\/js\/validate\/additional-methods.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -715,7 +697,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/validate\/min\/additional-methods.min-min.js",
+		"oAP": "\/assets\/js\/validate\/additional-methods.min.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -724,7 +706,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/validate\/min\/jquery-masked-input-min.js",
+		"oAP": "\/assets\/js\/validate\/jquery-masked-input.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -733,7 +715,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/validate\/min\/jquery.validate-min.js",
+		"oAP": "\/assets\/js\/validate\/jquery.validate.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -742,7 +724,7 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/validate\/min\/jquery.validate.min-min.js",
+		"oAP": "\/assets\/js\/validate\/jquery.validate.min.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -4343,11 +4325,11 @@
 		},
 	"languageDefaultsJS": {
 		"autoOutputAction": 0,
-		"autoOutputPathFilenamePattern": "*-min.js",
-		"autoOutputPathRelativePath": "\/min",
+		"autoOutputPathFilenamePattern": "*.min.js",
+		"autoOutputPathRelativePath": "\/",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
-		"autoOutputPathStyle": 2,
+		"autoOutputPathStyle": 0,
 		"createSourceMap": 0,
 		"minifyOutput": 1,
 		"syntaxCheckerStyle": 1,

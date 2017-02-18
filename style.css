@@ -13,6 +13,7 @@ Version: 1.2
  */
 /* FONT PATH
  * -------------------------- */
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 @import url(https://fonts.googleapis.com/css?family=Pathway+Gothic+One|Sarina|Fauna+One|Open+Sans:400italic,700italic,400,700);
 @font-face {
   font-family: 'FontAwesome';
@@ -5268,10 +5269,6 @@ body.page-template-page-buyback {
   footer #legal {
     margin-top: 15px; } }
 @media (max-width: 991px) {
-  .post-type-archive-product #products ul.products li.type-product, .tax-product_brand #products ul.products li.type-product, .tax-product_cat #products ul.products li.type-product {
-    padding: 5px;
-    width: 25%; }
-
   #RightSidebar {
     padding: 0 15px; }
     #RightSidebar #sidebar .widget h3:before {
@@ -5281,4 +5278,8 @@ body.page-template-page-buyback {
   .woocommerce div.product div.images,
   .woocommerce-page #content div.product div.images,
   .woocommerce-page div.product div.images {
-    width: 100%; } }
+    width: 100%; }
+
+  .post-type-archive-product #products ul.products li.type-product, .tax-product_brand #products ul.products li.type-product, .tax-product_cat #products ul.products li.type-product {
+    padding: 5px;
+    width: 25%; } }
