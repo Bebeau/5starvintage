@@ -771,7 +771,16 @@
 	}
 }
 @media (min-width: 1024px) {
-  
+	.post-type-archive-product, .tax-product_brand, .tax-product_cat {
+		#products {
+			ul.products {
+				li.type-product {
+					padding: 5px;
+					width: 20%;
+				}
+			}
+		}
+	}
 }
 @media (min-width: 1400px) {
 

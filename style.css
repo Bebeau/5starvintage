@@ -5283,3 +5283,7 @@ body.page-template-page-buyback {
   .post-type-archive-product #products ul.products li.type-product, .tax-product_brand #products ul.products li.type-product, .tax-product_cat #products ul.products li.type-product {
     padding: 5px;
     width: 25%; } }
+@media (min-width: 1024px) {
+  .post-type-archive-product #products ul.products li.type-product, .tax-product_brand #products ul.products li.type-product, .tax-product_cat #products ul.products li.type-product {
+    padding: 5px;
+    width: 20%; } }
