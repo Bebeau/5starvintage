@@ -666,6 +666,15 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/assets\/js\/custom.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/custom.min.min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/scooch\/scooch.js": {
 		"ft": 64,
 		"mi": 1,
@@ -2062,7 +2071,7 @@
 		"oF": 0
 		},
 	"\/config.rb": {
-		"ft": 8192,
+		"ft": 131072,
 		"oA": 0,
 		"oAP": "\/config.rb",
 		"oF": 0

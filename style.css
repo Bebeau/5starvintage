@@ -7,13 +7,13 @@ Author: Kyle Bebeau
 Author URI: http://kylebebeau.com
 Version: 1.2
 */
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
-@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 @import url(https://fonts.googleapis.com/css?family=Pathway+Gothic+One|Sarina|Fauna+One|Open+Sans:400italic,700italic,400,700);
 @font-face {
   font-family: 'FontAwesome';
