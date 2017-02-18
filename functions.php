@@ -4,6 +4,7 @@ global $post;
 
 function theme_styles() {
 	// Register & Load Styles
+	wp_enqueue_style( 'Bootstrap CSS', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', 'all' );
 	wp_enqueue_style( 'Style CSS', get_bloginfo( 'template_url' ) . '/style.css', 'all' );
 	
 	// Load default Wordpress jQuery
