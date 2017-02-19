@@ -64,6 +64,11 @@
 	<div id="wrapper">
 		<header id="header" class="hidden-xs">
 			<?php 
+
+				if(is_cart()) {
+					echo '<p id="freeShipMessage">Free shipping with all orders over $35.00.</p>';
+				}
+
 				global $options;
 				$link = get_option('notify_link');
 				$message = get_option('notify_message');
@@ -205,3 +210,6 @@
 				</li>
 			</ul>
 		</header>
+		<?php if(wp_is_mobile()) {
+			echo '<p id="freeShipMessage">Free shipping with all orders over $35.00.</p>';
+		} ?>

@@ -198,6 +198,14 @@ h1 {
 	background: $LightPurp;
 	z-index: 999;
 	@include transform(scale(1));
+	#freeShipMessage {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		line-height: 40px;
+	}
 	.parent {
 		display: inline-block;
 		vertical-align: top;

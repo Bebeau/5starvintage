@@ -2629,6 +2629,13 @@ h1 {
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1); }
+  #header #freeShipMessage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 40px; }
   #header .parent {
     display: inline-block;
     vertical-align: top;
@@ -5291,7 +5298,18 @@ body.page-template-page-buyback {
     footer #legal {
       margin-top: 15px; }
     footer #weaccept {
-      margin: 15px auto; } }
+      margin: 15px auto; }
+
+  #freeShipMessage {
+    -webkit-transform: translate(0, 125px);
+    -moz-transform: translate(0, 125px);
+    -ms-transform: translate(0, 125px);
+    -o-transform: translate(0, 125px);
+    transform: translate(0, 125px);
+    text-align: center;
+    padding: 0 15px;
+    box-sizing: border-box;
+    color: white; } }
 @media (max-width: 991px) {
   #RightSidebar {
     padding: 0 15px; }

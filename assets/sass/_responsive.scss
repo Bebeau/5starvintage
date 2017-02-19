@@ -760,6 +760,13 @@
   			margin: 15px auto;
   		}
   	}
+  	#freeShipMessage {
+  		@include transform(translate(0,125px));
+  		text-align: center;
+  		padding: 0 15px;
+  		box-sizing: border-box;
+  		color: white;
+  	}
 }
 @media (max-width: 991px) {
 	#RightSidebar {
