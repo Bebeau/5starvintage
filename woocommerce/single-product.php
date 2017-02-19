@@ -29,8 +29,6 @@ get_header('shop'); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php do_action( 'woocommerce_single_product_title' ); ?>
-
 				<?php
 					/**
 					 * woocommerce_before_main_content hook
@@ -39,8 +37,9 @@ get_header('shop'); ?>
 					 * @hooked woocommerce_breadcrumb - 20
 					 */
 					do_action( 'woocommerce_before_main_content' );
+					do_action( 'woocommerce_single_product_title' );
 				?>
-
+				
 				<div class="col-md-8 PageWrap">
 
 					<div id="SingleProduct">

@@ -52,9 +52,15 @@
 			margin: 50px 0 25px;
 		}
 	}
+	#wrapper {
+		z-index: inherit;
+	}
 	#header.visible-xs {
-		position: relative;
+		position: fixed;
 		height: auto;
+		z-index: 999;
+		top: 0;
+		left: 0;
 		background: none;
 		margin: 0;
 		width: 100%;
@@ -90,7 +96,7 @@
 			#MobileDropdownNav {
 				&.nav {
 					background: darken($DarkBlue, 5%);
-					padding: 0 15px 35px;
+					padding: 0 15px 25px;
 					li {
 						margin: 0 -15px;
 						padding: 0 15px;
@@ -479,7 +485,6 @@
 			}
 		}
 	}
-
 	#Shop {
 		.woocommerce-pagination {
 			ul {
@@ -511,6 +516,9 @@
 		}
 	}
 	#ProductDetails {
+		#content {
+			margin: 0;
+		}
 		h1 {
 			span {
 				display: block;
@@ -526,10 +534,16 @@
 	}
 	#RightSidebar {
 		padding-left: 15px;
+		margin-bottom: 0;
+		margin-top: 15px;
 		#sidebar {
 			.widget {
-				@include border-top-radius(5px);
-				@include border-bottom-radius(5px);
+				@include border-top-radius(0);
+				@include border-bottom-radius(0);
+				margin-bottom: 15px;
+				&:last-child {
+					margin: 0;
+				}
 				h3 {
 					&:before {
 						background: none;
@@ -543,7 +557,8 @@
 						color: $Purp !important;
 					}
 				}
-				#RelatedProducts {
+				.RelatedProducts {
+					padding: 25px 0;
 					.related {
 						ul {
 							li.col-md-3 {
@@ -701,7 +716,7 @@
 		}
 	}
   	#container {
-  		margin-top: 60px;
+  		margin-top: 125px;
   	}
   	.woocommerce-cart, .woocommerce-checkout {
   		.container {
@@ -718,6 +733,7 @@
   		width: 100%;
   	}
   	footer {
+  		margin-top: 15px;
   		#menu-footer-menu {
   			li {
   				display: block;
@@ -739,6 +755,9 @@
   		}
   		#legal {
   			margin-top: 15px;
+  		}
+  		#weaccept {
+  			margin: 15px auto;
   		}
   	}
 }

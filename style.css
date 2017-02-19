@@ -4802,9 +4802,15 @@ body.page-template-page-buyback {
   .mobile-home h2 {
     margin: 50px 0 25px; }
 
+  #wrapper {
+    z-index: inherit; }
+
   #header.visible-xs {
-    position: relative;
+    position: fixed;
     height: auto;
+    z-index: 999;
+    top: 0;
+    left: 0;
     background: none;
     margin: 0;
     width: 100%; }
@@ -4834,7 +4840,7 @@ body.page-template-page-buyback {
       margin: 0 0 -15px; }
       #header.visible-xs .navbar-collapse #MobileDropdownNav.nav {
         background: #0c171e;
-        padding: 0 15px 35px; }
+        padding: 0 15px 25px; }
         #header.visible-xs .navbar-collapse #MobileDropdownNav.nav li {
           margin: 0 -15px;
           padding: 0 15px; }
@@ -5121,6 +5127,8 @@ body.page-template-page-buyback {
   #SingleProduct .related {
     display: none; }
 
+  #ProductDetails #content {
+    margin: 0; }
   #ProductDetails h1 span {
     display: block;
     width: 80%;
@@ -5131,12 +5139,17 @@ body.page-template-page-buyback {
       width: auto; }
 
   #RightSidebar {
-    padding-left: 15px; }
+    padding-left: 15px;
+    margin-bottom: 0;
+    margin-top: 15px; }
     #RightSidebar #sidebar .widget {
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px; }
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      margin-bottom: 15px; }
+      #RightSidebar #sidebar .widget:last-child {
+        margin: 0; }
       #RightSidebar #sidebar .widget h3 {
         border-top: none; }
         #RightSidebar #sidebar .widget h3:before {
@@ -5145,8 +5158,10 @@ body.page-template-page-buyback {
         background: none;
         text-align: left;
         color: #5a2049 !important; }
-      #RightSidebar #sidebar .widget #RelatedProducts .related ul li.col-md-3 {
-        width: 100%; }
+      #RightSidebar #sidebar .widget .RelatedProducts {
+        padding: 25px 0; }
+        #RightSidebar #sidebar .widget .RelatedProducts .related ul li.col-md-3 {
+          width: 100%; }
 
   .checkout .CartTotal .col-md-5#customer_details {
     padding: 0 15px 15px;
@@ -5242,7 +5257,7 @@ body.page-template-page-buyback {
     width: 50%; }
 
   #container {
-    margin-top: 60px; }
+    margin-top: 125px; }
 
   .woocommerce-cart .container, .woocommerce-checkout .container {
     margin-top: 60px; }
@@ -5254,19 +5269,23 @@ body.page-template-page-buyback {
   .woocommerce-checkout .PageWrap #order_review {
     width: 100%; }
 
-  footer #menu-footer-menu li {
-    display: block; }
-    footer #menu-footer-menu li a {
-      display: block;
-      border: none;
-      border-bottom: 1px solid #009cd6;
-      width: 100%; }
-    footer #menu-footer-menu li:first-child a {
-      border-top: 1px solid #009cd6; }
-  footer #footerSocial {
+  footer {
     margin-top: 15px; }
-  footer #legal {
-    margin-top: 15px; } }
+    footer #menu-footer-menu li {
+      display: block; }
+      footer #menu-footer-menu li a {
+        display: block;
+        border: none;
+        border-bottom: 1px solid #009cd6;
+        width: 100%; }
+      footer #menu-footer-menu li:first-child a {
+        border-top: 1px solid #009cd6; }
+    footer #footerSocial {
+      margin-top: 15px; }
+    footer #legal {
+      margin-top: 15px; }
+    footer #weaccept {
+      margin: 15px auto; } }
 @media (max-width: 991px) {
   #RightSidebar {
     padding: 0 15px; }
