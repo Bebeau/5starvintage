@@ -2245,19 +2245,21 @@ Version: 1.2
     background: #00afef;
     color: #fff;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25); }
-.checkout #payment ul li label {
-  line-height: 30px;
-  font-weight: bold;
-  margin: 0; }
-  .checkout #payment ul li label input {
-    margin: 0;
-    position: relative;
-    top: -1px; }
-.checkout #payment ul li .form-row-first {
-  padding: 10px 15px; }
-  .checkout #payment ul li .form-row-first .col-md-5 {
-    margin: 0;
-    padding: 0; }
+.checkout #wc-stripe-cc-form .form-row label {
+  font-weight: normal; }
+.checkout #wc-stripe-cc-form .form-row input {
+  line-height: 40px;
+  font-size: 16pt;
+  width: 100%; }
+.checkout #wc-stripe-cc-form .form-row.form-row-first {
+  padding: 0;
+  width: 50%;
+  display: inline-block; }
+.checkout #wc-stripe-cc-form .form-row.form-row-last {
+  width: 50%;
+  display: inline-block;
+  padding-left: 15px;
+  box-sizing: bordrer-box; }
 .checkout #order_review_heading {
   margin: 0 0 15px; }
 .checkout .terms {
@@ -3266,14 +3268,15 @@ h1 {
   margin: 0;
   padding: 0;
   list-style: none; }
+  .payment_methods .payment_box {
+    padding: 15px;
+    box-sizing: border-box; }
   .payment_methods li {
     border-bottom: 1px solid #ccc;
     padding: 15px;
     box-sizing: border-box; }
     .payment_methods li:last-child {
       border: none; }
-    .payment_methods li p {
-      margin: 0 0 0 17px !important; }
   .payment_methods label {
     width: 90%; }
     .payment_methods label:hover {

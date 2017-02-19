@@ -1248,15 +1248,16 @@ h1 {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	.payment_box {
+		padding: 15px;
+		box-sizing: border-box;
+	}
 	li {
 		border-bottom: 1px solid #ccc;
 		padding: 15px;
 		box-sizing: border-box;
 		&:last-child {
 			border: none;
-		}
-		p {
-			margin: 0 0 0 17px !important;
 		}
 	}
 	label {

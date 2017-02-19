@@ -381,26 +381,26 @@
 			}
 		}
 	}
-	#payment {
-		ul {
-			li{
-				label {
-					line-height: 30px;
-					font-weight: bold;
-					margin: 0;
-					input {
-						margin: 0;
-						position: relative;
-						top: -1px;
-					}
-				}
-				.form-row-first {
-					padding: 10px 15px;
-					.col-md-5 {
-						margin: 0;
-						padding: 0;
-					}
-				}
+	#wc-stripe-cc-form {
+		.form-row {
+			label {
+				font-weight: normal;
+			}
+			input {
+				line-height: 40px;
+				font-size: 16pt;
+				width: 100%;
+			}
+			&.form-row-first {
+				padding: 0;
+				width: 50%;
+				display: inline-block;
+			}
+			&.form-row-last {
+				width: 50%;
+				display: inline-block;
+				padding-left: 15px;
+				box-sizing: bordrer-box;
 			}
 		}
 	}
