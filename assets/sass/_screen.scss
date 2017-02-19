@@ -1245,6 +1245,9 @@ h1 {
 	border: 1px solid darken($White, 10%);
 	@include border-top-radius(5px);
 	@include border-bottom-radius(5px);
+	margin: 0;
+	padding: 0;
+	list-style: none;
 	li {
 		border-bottom: 1px solid #ccc;
 		padding: 15px;

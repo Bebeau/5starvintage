@@ -2,6 +2,9 @@
 
 global $post;
 
+// Hide admin bar
+add_filter('show_admin_bar', '__return_false');
+
 function theme_styles() {
 	// Register & Load Styles
 	wp_enqueue_style( 'Bootstrap CSS', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', 'all' );
@@ -34,7 +37,7 @@ function grd_woocommerce_script_cleaner() {
 		wp_dequeue_style( 'woocommerce_fancybox_styles' );
 		wp_dequeue_style( 'woocommerce_chosen_styles' );
 		wp_dequeue_style( 'woocommerce_prettyPhoto_css' );
-		wp_dequeue_style( 'select2' );
+		// wp_dequeue_style( 'select2' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'grd_woocommerce_script_cleaner', 99 );
@@ -97,36 +100,6 @@ require_once (TEMPLATEPATH . '/partials/comments/comments_functions.php');
 
 // overwrite woocommerce default widgets & unregister unused widgets
 function override_woocommerce_widgets() {
- 
-	if ( class_exists( 'WC_Widget_Onsale' ) ) {
-		unregister_widget( 'WC_Widget_Onsale' );
-		include_once(TEMPLATEPATH . '/woocommerce/widgets/real-widget-onsale.php' );
-		register_widget( 'Real_Widget_Onsale' );
-	}
-
-	if ( class_exists( 'WC_Widget_Featured_Products' ) ) {
-		unregister_widget( 'WC_Widget_Featured_Products' );
-		include_once(TEMPLATEPATH . '/woocommerce/widgets/real-widget-featured-products.php' );
-		register_widget( 'Real_Widget_Featured_Products' );
-	}
-
-	if ( class_exists( 'WC_Widget_Recently_Viewed' ) ) {
-		unregister_widget( 'WC_Widget_Recently_Viewed' );
-		include_once(TEMPLATEPATH . '/woocommerce/widgets/real-widget-recently-viewed.php' );
-		register_widget( 'Real_Widget_Recently_Viewed' );
-	}
-
-	if ( class_exists( 'WC_Widget_Best_Sellers' ) ) {
-		unregister_widget( 'WC_Widget_Best_Sellers' );
-		include_once(TEMPLATEPATH . '/woocommerce/widgets/real-widget-best-sellers.php' );
-		register_widget( 'Real_Widget_Best_Sellers' );
-	}
-
-	if ( class_exists( 'WC_Widget_Top_Rated_Products' ) ) {
-		unregister_widget( 'WC_Widget_Top_Rated_Products' );
-		include_once(TEMPLATEPATH . '/woocommerce/widgets/real-widget-top-rated-products.php' );
-		register_widget( 'Real_Widget_Top_Rated_Products' );
-	}
 	
 	if ( class_exists( 'WC_Widget_Recent_Products' ) ) {
 		unregister_widget( 'WC_Widget_Recent_Products' );
@@ -199,10 +172,6 @@ function custom_override_checkout_fields( $fields ) {
 
   	return $fields;
 }
-
-// Hide admin bar
-add_filter('show_admin_bar', '__return_false');
-
 
 // Shop filter options above products. Remove the defaults display, and add a custom display.
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
