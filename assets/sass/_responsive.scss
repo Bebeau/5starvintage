@@ -1,4 +1,17 @@
 @media (max-width: 767px) {
+	.woocommerce-order-received {
+		table {
+			&.customer_details {
+				width: 100%;
+			}
+		}
+		.addresses {
+			.col-1,.col-2 {
+				width: 100%;
+				display: block;
+			}
+		}
+	}
 	#notifyBar {
 		.btn {
 			white-space: normal;

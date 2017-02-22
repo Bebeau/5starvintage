@@ -4776,6 +4776,8 @@ body.page-template-page-buyback {
   box-sizing: border-box; }
   .woocommerce-order-received .woocommerce header {
     margin-top: 25px; }
+.woocommerce-order-received h2 {
+  color: #231f1f !important; }
 .woocommerce-order-received table {
   width: 100%; }
   .woocommerce-order-received table th {
@@ -4806,6 +4808,12 @@ body.page-template-page-buyback {
       font-weight: bold; }
 
 @media (max-width: 767px) {
+  .woocommerce-order-received table.customer_details {
+    width: 100%; }
+  .woocommerce-order-received .addresses .col-1, .woocommerce-order-received .addresses .col-2 {
+    width: 100%;
+    display: block; }
+
   #notifyBar .btn {
     white-space: normal;
     width: 100%;
