@@ -712,3 +712,55 @@
 		}
 	}
 }
+.woocommerce-order-received {
+	.woocommerce {
+		padding: 25px;
+		box-sizing: border-box;
+		header {
+			margin-top: 25px;
+		}
+	}
+	table {
+		width: 100%;
+		th {
+			padding: 5px;
+			background: #ebebeb;
+		}
+		tfoot {
+			th {
+				text-align: right;
+			}
+		}
+		tr {
+			td {
+				padding: 5px;
+				border: 1px solid #ebebeb;
+			}
+		}
+		&.customer_details {
+			width: auto;
+		}
+	}
+	.addresses {
+		margin-top: 25px;
+		.col-1 {
+			margin-right: 15px;
+		}
+		.col-1, .col-2 {
+			display: inline-block;
+			background: #ebebeb;
+			box-sizing: border-box;
+			padding: 25px;
+			header, address {
+				margin: 0;
+				text-align: left;
+			}
+			h3 {
+				margin: 0 0 10px;
+				font-size: 14pt;
+				font-weight: bold;
+			}
+		}
+
+	}
+}

@@ -2250,7 +2250,8 @@ Version: 1.2
 .checkout #wc-stripe-cc-form .form-row input {
   line-height: 40px;
   font-size: 16pt;
-  width: 100%; }
+  width: 100%;
+  padding: 0 10px; }
 .checkout #wc-stripe-cc-form .form-row.form-row-first {
   padding: 0;
   width: 50%;
@@ -4769,6 +4770,40 @@ body.page-template-page-buyback {
     margin: 0;
     background: none;
     border: none; }
+
+.woocommerce-order-received .woocommerce {
+  padding: 25px;
+  box-sizing: border-box; }
+  .woocommerce-order-received .woocommerce header {
+    margin-top: 25px; }
+.woocommerce-order-received table {
+  width: 100%; }
+  .woocommerce-order-received table th {
+    padding: 5px;
+    background: #ebebeb; }
+  .woocommerce-order-received table tfoot th {
+    text-align: right; }
+  .woocommerce-order-received table tr td {
+    padding: 5px;
+    border: 1px solid #ebebeb; }
+  .woocommerce-order-received table.customer_details {
+    width: auto; }
+.woocommerce-order-received .addresses {
+  margin-top: 25px; }
+  .woocommerce-order-received .addresses .col-1 {
+    margin-right: 15px; }
+  .woocommerce-order-received .addresses .col-1, .woocommerce-order-received .addresses .col-2 {
+    display: inline-block;
+    background: #ebebeb;
+    box-sizing: border-box;
+    padding: 25px; }
+    .woocommerce-order-received .addresses .col-1 header, .woocommerce-order-received .addresses .col-1 address, .woocommerce-order-received .addresses .col-2 header, .woocommerce-order-received .addresses .col-2 address {
+      margin: 0;
+      text-align: left; }
+    .woocommerce-order-received .addresses .col-1 h3, .woocommerce-order-received .addresses .col-2 h3 {
+      margin: 0 0 10px;
+      font-size: 14pt;
+      font-weight: bold; }
 
 @media (max-width: 767px) {
   #notifyBar .btn {
