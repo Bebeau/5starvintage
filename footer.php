@@ -9,16 +9,16 @@
 	<!-- Social bookmark icons in header -->
 	<div id="footerSocial" class="hidden-xs">
 		<a class="twitter-icon" href="https://twitter.com/5StarVintage" target="_blank">
-			<i class="fa fa-twitter"></i>
+			<i class="fab fa-twitter"></i>
 		</a>
 		<a class="tumblr-icon" href="https://www.sneakerbound.com" target="_blank">
-			<i class="fa fa-tumblr"></i>
+			<i class="fab fa-tumblr"></i>
 		</a>
 		<a class="pinterest-icon" href="#" target="_blank">
-			<i class="fa fa-pinterest"></i>
+			<i class="fab fa-pinterest"></i>
 		</a>
 		<a class="instagram-icon" href="https://instagram.com/5starvintage/" target="_blank">
-			<i class="fa fa-instagram"></i>
+			<i class="fab fa-instagram"></i>
 		</a>
 	</div>
 
@@ -31,22 +31,22 @@
 	<!-- Social bookmark icons in header -->
 	<div id="footerSocial" class="visible-xs">
 		<a class="twitter-icon" href="https://twitter.com/5StarVintage" target="_blank">
-			<i class="fa fa-twitter"></i>
+			<i class="fab fa-twitter"></i>
 		</a>
 		<a class="tumblr-icon" href="https://www.sneakerbound.com" target="_blank">
-			<i class="fa fa-tumblr"></i>
+			<i class="fab fa-tumblr"></i>
 		</a>
 		<a class="pinterest-icon" href="#" target="_blank">
-			<i class="fa fa-pinterest"></i>
+			<i class="fab fa-pinterest"></i>
 		</a>
 		<a class="instagram-icon" href="https://instagram.com/5starvintage/" target="_blank">
-			<i class="fa fa-instagram"></i>
+			<i class="fab fa-instagram"></i>
 		</a>
 	</div>
 
 	<div id="legal">
 		Copyright © 2013 5 Star Vintage. All rights reserved. All logos and trademarks are the property of their respective owners. <br />
-		<a href="http://theinitgroup.com" target="_blank">Los Angeles Web Design</a> by The INiT Group.
+		<a href="http://theinitgroup.com" target="_blank">Web Design &amp; Development</a> by Kyle Bebeau.
 	</div>
 
 </footer>

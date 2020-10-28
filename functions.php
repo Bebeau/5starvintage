@@ -7,15 +7,15 @@ add_filter('show_admin_bar', '__return_false');
 
 function theme_styles() {
 	// Register & Load Styles
-	wp_enqueue_style( 'Bootstrap CSS', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', 'all' );
-	wp_enqueue_style( 'Style CSS', get_bloginfo( 'template_url' ) . '/style.css', 'all' );
+	wp_enqueue_style( 'Style CSS', get_bloginfo( 'template_url' ) . '/style.css?foo', 'all' );
 	
 	// Load default Wordpress jQuery
 	wp_deregister_script('jquery');
-	wp_enqueue_script('jquery', 'http://code.jquery.com/jquery.min.js', '', null, false );
+	wp_enqueue_script('jquery', 'https://code.jquery.com/jquery.min.js', '', null, false );
+	wp_enqueue_script('bootstrap', 'https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js', '', null, false );
 
 	// Load Custom JS
-	wp_enqueue_script('custom', get_bloginfo( 'template_url' ) . '/assets/js/custom.min.js', array('jquery'), null, true);
+	wp_enqueue_script('custom', get_bloginfo( 'template_url' ) . '/assets/js/custom.min.js?foo', array('jquery'), null, true);
 	wp_localize_script( 'custom', 'ajax', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'page' => 2,
@@ -94,9 +94,6 @@ function register_my_menus() {
 	    )
 	);
 }
-
-// Comments
-require_once (TEMPLATEPATH . '/partials/comments/comments_functions.php');
 
 // overwrite woocommerce default widgets & unregister unused widgets
 function override_woocommerce_widgets() {
@@ -177,34 +174,67 @@ function custom_override_checkout_fields( $fields ) {
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+remove_action('woocommerce_single_product_title', 'woocommerce_template_single_title', 10);
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
 
-add_action('woocommerce_single_product_title', 'woocommerce_template_single_title', 10);
-add_action('woocommerce_before_single_product_summary', 'woocommerce_output_related_products', 30);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
+
+add_action('woocommerce_before_single_product', 'woocommerce_template_single_title', 10);
+add_action('woocommerce_before_shop_loop', 'woocommerce_get_sidebar', 10);
+
+add_filter( 'woocommerce_ship_to_different_address_checked', '__return_false' );
+
+function woocommerce_template_product_description() {
+	wc_get_template( 'single-product/tabs/description.php' );
+}
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_product_description', 20 );
 
 // incude notify plugin
 include_once(TEMPLATEPATH . '/partials/plugins/notify.php');
 
-function wc_remove_related_products( $args ) {
-	return array();
-}
-add_filter('woocommerce_related_products_args','wc_remove_related_products', 10);
-
-// Display 24 products per page. Goes in functions.php
-// add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 30;' ), 20 );
-// ajax response to return posts
+// ajax response to return products
 add_action('wp_ajax_ajaxBlog', 'addPosts');
 add_action('wp_ajax_nopriv_ajaxBlog', 'addPosts');
 function addPosts() {
     global $post;
 
     $page = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
+    $cat = (isset($_POST['cat'])) ? $_POST['cat'] : 0;
 
-    $args = array(
-        'paged' => $page,
-        'orderby' => 'asc',
-        'post_type' => array("product"),
-        'posts_per_page' => 38
-    );
+    if(!empty($cat) & $cat !== "localhost:8888" && $cat !== "5starvintage.com") {
+
+        $terms = get_term_by('slug', $cat, 'product_cat');
+        $catID = $terms->term_id;
+
+        $args = array(
+            'paged' => $page,
+            'posts_per_page' => get_option( 'posts_per_page' ),
+            'post_type' => 'product',
+            'post_status' => 'publish',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'id',
+                    'terms' => $catID,
+                    'include_children' => true,
+                    'operator' => 'IN'
+                )
+            )
+        );
+
+    } else {
+        $args = array(
+            'paged' => $page,
+            'posts_per_page' => get_option( 'posts_per_page' ),
+            'post_type' => 'product',
+            'post_status' => 'publish'
+        );
+    }
 
     $results = new WP_Query($args);
 
@@ -218,9 +248,55 @@ function addPosts() {
 
     wp_reset_query();
 
-    exit;
+    wp_die();
 
 }
+
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+
+function new_loop_shop_per_page( $cols ) {
+  // $cols contains the current number of products per page based on the value stored on Options -> Reading
+  // Return the number of products you wanna show per page.
+  $cols = 64;
+  return $cols;
+}
+
+function fb_purchase_pixel() {
+	?>
+	<!-- Paste Tracking Code Under Here -->
+	<script>
+		fbq('track', 'Purchase');
+	</script>
+	<!-- End Tracking Code -->
+	<?php	
+}
+add_action( 'woocommerce_thankyou', 'fb_purchase_pixel' );
+
+function fb_checkout_pixel() {
+	?>
+	<!-- Paste Tracking Code Under Here -->
+	<script>
+		fbq('track', 'InitiateCheckout');
+	</script>
+	<!-- End Tracking Code -->
+	<?php	
+}
+add_action( 'woocommerce_before_checkout_form', 'fb_checkout_pixel' );
+
+function fb_cart_pixel() {
+	?>
+	<!-- Paste Tracking Code Under Here -->
+	<script>
+		var total = document.getElementsByClassName("woocommerce-Price-amount")[0].innerHTML.replace(/<(?:.|\n)*?>/gm, '').replace(/[&\/\\#,+()$~%'":*?<>{}]/g, '');
+		fbq('track', 'AddToCart', {
+			value: total,
+			currency: 'USD'
+		});
+	</script>
+	<!-- End Tracking Code -->
+	<?php	
+}
+add_action( 'woocommerce_before_cart', 'fb_cart_pixel' );
 
 // Custom Scripting to Move JavaScript from the Head to the Footer
 function remove_head_scripts() { 

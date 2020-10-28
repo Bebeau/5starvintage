@@ -3,7 +3,7 @@
 	display: none;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Pathway+Gothic+One|Sarina|Fauna+One|Open+Sans:400italic,700italic,400,700);
+@import url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One|Sarina|Fauna+One|Open+Sans:400italic,700italic,400,700');
 
 html {
 	position: relative;
@@ -12,6 +12,7 @@ body{
 	background: url('assets/img/bg-pattern.png') repeat fixed top left $DarkBlue;
 	font-family: "Open Sans" , sans-serif;
 	background-color: $DarkBlue;
+	margin: 0;
 }
 #wrapper {
 	position: relative;
@@ -19,6 +20,7 @@ body{
 }
 a {
 	color: $Teal;
+	text-decoration: none;
 	&:hover {
 		text-decoration: none;
 		color: $Teal;
@@ -65,7 +67,7 @@ h1 {
 	color: red;
 	border: none !important;
 }
-.btn {
+.btn, button {
 	background: $LightBlue;
 	color: #fff;
 	border: none;
@@ -99,10 +101,10 @@ h1 {
 	display: none;
 	position: relative;
 	z-index: 9999;
-	@include transition(all 0.25s $authenticMotion);
+	@include transition(all 0.25s ease-in-out);
 	&:hover {
 		background: lighten($Yellow, 10%);
-		@include transition(all 0.25s $authenticMotion);
+		@include transition(all 0.25s ease-in-out);
 	}
 	.btn {
 		width: 90%;
@@ -113,13 +115,13 @@ h1 {
 		font-size: 16pt;
 		@include border-top-radius(5px);
 		@include border-bottom-radius(5px);
-		@include transition(all 0.25s $authenticMotion);
+		@include transition(all 0.25s ease-in-out);
 		margin: 0 auto;
 		position: relative;
 		left: 50px;
 		&:hover {
 			color: $LightPurp;
-			@include transition(all 0.25s $authenticMotion);
+			@include transition(all 0.25s ease-in-out);
 		}
 	}
 	i {
@@ -179,21 +181,13 @@ h1 {
 		display: inline-block;
 	}
 }
-.page-template-page-brands,
-.page-template-page-home,
-.page-template-page-categories {
-	overflow: hidden;
-	#header {
-		display: none;
-	}
-}
 #header {
 	background: none;
 	position: relative;
 	height: 40px;
 	display: block;
-	margin: 75px auto 0;
-	font-family: "Fauna One", sans-serif;
+	margin: 60px auto 0;
+	font-family: "Fauna One", sans-serif !important;
 	color: $White;
 	background: $LightPurp;
 	z-index: 999;
@@ -205,6 +199,7 @@ h1 {
 		width: 100%;
 		text-align: center;
 		line-height: 40px;
+		margin: 0;
 	}
 	.parent {
 		display: inline-block;
@@ -219,6 +214,8 @@ h1 {
 			line-height: 40px;
 			text-transform: uppercase;
 			letter-spacing: 1px;
+			text-decoration: none;
+			font-size: 14px;
 		}
 		&#social {
 			a {
@@ -252,12 +249,12 @@ h1 {
 						letter-spacing: normal;
 						color: $White;
 						box-sizing: border-box;
-						@include transition(all 0.2s $authenticMotion);
+						@include transition(all 0.2s ease-in-out);
 						&:hover {
 							color: $Yellow;
 							cursor: pointer !important;
 							letter-spacing: 0.5px;
-							@include transition(all  0.2s $authenticMotion);
+							@include transition(all  0.2s ease-in-out);
 						}
 					}
 				}
@@ -266,17 +263,17 @@ h1 {
 		&:hover {
 			.dropdown {
 				max-height: 100vh;
-				@include transition(all 0.5s $authenticMotion);
+				@include transition(all 0.5s ease-in-out);
 			}
 		}
 	}
 	#logo {
 		position: relative;
-		width: 175px;
+		width: 150px;
 		a {
 			position: absolute;
 			z-index: 2;
-			top: -60px;
+			top: -50px;
 			left: 0;
 			width: 100%;
 		}
@@ -294,294 +291,6 @@ h1 {
 		#cart {
 			margin: 0 25px;
 		}
-	}
-	// .container-fluid {
-	// 	color: $White;
-	// 	font-family: "fauna one", sans-serif;
-	// 	font-size: 10pt;
-	// 	letter-spacing: 1px;
-	// 	line-height: 30px;
-	// 	position: relative;
-	// 	height: 40px;
-	// 	.row {
-	// 		height: 40px;
-	// 	}
-	// }
-	// .HeaderMenuLeft {
-	// 	position: static;
-	// 	z-index: 2;
-	// 	li {
-	// 		position: static;
-	// 		a.parent {
-	// 			display: block;
-	// 			line-height: 40px;
-	// 			text-align: center;
-	// 			text-transform: uppercase;
-	// 			letter-spacing: 1px;
-	// 			font-size: 10pt;
-	// 			color: $White;
-	// 			@include transition(all, 0.2s, ease-in-out);
-	// 		}
-	// 		&:hover {
-	// 			background: $Purp;
-	// 			a.parent {
-	// 				color: $Yellow;
-	// 				cursor: pointer;
-	// 				letter-spacing: 1.5px;
-	// 				@include transition(all, 0.2s, ease-in-out);
-	// 			}
-	// 			.dropdown {
-	// 				max-height: 100vh;
-	// 				@include transition(all, 0.5s, ease-in-out);
-	// 			}
-	// 		}
-	// 		.dropdown {
-	// 			position: absolute;
-	// 			left: 0;
-	// 			width: 100%;
-	// 			background: $Purp;
-	// 			box-sizing: border-box;
-	// 			overflow: hidden;
-	// 			max-height: 0px;
-	// 			@include transition(all, 0.2s, ease-in-out);
-	// 			ul {
-	// 				padding: 50px 25px 25px;
-	// 				box-sizing: border-box;
-	// 				li {
-	// 					display: inline-block;
-	// 					width: 25%;
-	// 					margin: 0 0 0 -4px;
-	// 					line-height: normal;
-	// 					a {
-	// 						display: block;
-	// 						text-align: left;
-	// 						text-transform: normal;
-	// 						line-height: 30px;
-	// 						letter-spacing: normal;
-	// 						color: $White;
-	// 						box-sizing: border-box;
-	// 						@include transition(all, 0.2s, ease-in-out);
-	// 						&:hover {
-	// 							color: $Yellow;
-	// 							cursor: pointer;
-	// 							letter-spacing: 0.5px;
-	// 							@include transition(all, 0.2s, ease-in-out);
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
-	// .HeaderMenuRight {
-	// 	position: relative;
-	// 	li {
-	// 		line-height: 40px;
-	// 	}
-	// 	.NavLogin {
-	// 		text-align: center;
-	// 		.ParentNav {
-	// 			font-size: 10pt;
-	// 		}
-	// 		a {
-	// 			color: #fff;
-	// 			@include transition(all, 0.2s, ease-in-out);
-	// 			text-align: center;
-	// 			line-height: 40px !important;
-	// 			display: block;
-	// 			&.btn {
-	// 				line-height: 40px;
-	// 				padding: 0 15px;
-	// 				@include border-top-radius(0);
-	//				@include border-bottom-radius(0);
-	// 				@include transition(all, 0.2s, ease-in-out);
-	// 				&:hover {
-	// 					background: $OffBlack;
-	// 					cursor: pointer;
-	// 					@include transition(all, 0.2s, ease-in-out);
-	// 				}
-	// 			}
-	// 			&.loggedin {
-	// 				font-weight: bold;
-	// 				text-transform: uppercase;
-	// 				font-size: 10pt;
-	// 				padding: 0 10px 0 0;
-	// 				&:hover {
-	// 					background: none;
-	// 					color: $Yellow;
-	// 				}
-	// 			}
-	// 		}
-	// 		&:hover {
-	// 			background: $Purp;
-	// 			color: $Yellow;
-	// 			@include transition(all, 0.2s, ease-in-out);
-	// 		}
-	// 	}
-	// 	.NavCart {
-	// 		.ParentNav {
-	// 			text-align: center;
-	// 			@include transition(all, 0.2s, ease-in-out);
-	// 			a {
-	// 				display: block;
-	// 				color: #fff;
-	// 				font-size: 10pt;
-	// 				&:hover {
-	// 					background: $Purp;
-	// 					@include transition(all, 0.2s, ease-in-out);
-	// 					cursor: pointer;
-	// 					color: $Yellow;
-	// 				}
-	// 			}
-	// 		}
-	// 		.dropdown {
-	// 			right: 50%;
-	// 			width: 400px;
-	// 			margin: 0 -200px 0 0;
-	// 		}
-	// 		.dropdown {
-	// 			background: $OffBlack;
-	// 			position: absolute;
-	// 			z-index: 9999;
-	// 			top: 40px;
-	// 			width: 400px;
-	// 			padding: 5px;
-	// 			-webkit-box-sizing: border-box;
-	// 			-moz-box-sizing: border-box;
-	// 			box-sizing: border-box;
-	// 			text-align: left;
-	// 			display: none;
-	// 			padding: 25px;
-	// 			.CartDetails {
-	// 				.row{
-	// 					margin: 10px 0 0;
-	// 					font-family: "Open Sans", sans-serif;
-	// 					letter-spacing: normal;
-	// 					.col-md-10 {
-	// 						margin-top: 15px;
-	// 						position: relative;
-	// 						div:last-child{
-	// 							font-weight: bold;
-	// 							font-size: 13px;
-	// 							letter-spacing: 1px;
-	// 						}
-	// 					}
-	// 				}
-	// 				hr {
-	// 					margin: 10px -5px;
-	// 					border-top: 1px solid #111;
-	// 					border-bottom: 1px solid #333;
-	// 				}
-	// 				.total {
-	// 					font-size: 18px;
-	// 					line-height: normal;
-	// 					margin: 0;
-	// 					.amount {
-	// 						color: $Teal;
-	// 					}
-	// 				}
-	// 				.empty {
-	// 					text-align: center;
-	// 					padding: 25px;
-	// 					font-size: 18px;
-	// 				}
-	// 			}
-	// 		}
-	// 		&:hover {
-	// 			.dropdown{
-	// 				display: block;
-	// 			}
-	// 		}
-	// 	}
-	// 	.Bookmarks {
-	// 		text-align: center;
-	// 		a {
-	// 			text-align: center;
-	// 			vertical-align: middle; 
-	// 			display: inline-block;
-	// 			i {
-	// 				color: $Purp;
-	// 				width: 20px;
-	// 				height: 40px;
-	// 				display: block;
-	// 				margin: 0 auto;
-	// 				font-size: 12pt;
-	// 				vertical-align: middle;
-	// 				line-height: 40px;
-	// 				@include transition(all, 0.2s, ease-in-out);
-	// 			}
-	// 			&:hover {
-	// 				i {
-	// 					color: $Yellow;
-	// 					@include transition(all, 0.2s, ease-in-out);
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
-	// #MiniCart {
-	// 	position: relative;
-	// 	.checkout {
-	// 		margin: 0;
-	// 	}
-	// 	h3 {
-	// 		margin: 0 0 25px;
-	// 	}
-	// 	h4 {
-	// 		font-size: 12px;
-	// 		margin: 0;
-	// 		font-family: "Open Sans", sans-serif;
-	// 	}
-	// 	.product-remove a {
-	// 		position: absolute;
-	// 		right: 5px;
-	// 		top: 5px;
-	// 		color: $Red;
-	// 		padding: 5px 8px;
-	// 		font-size: 18px;
-	// 		line-height: normal;
-	// 		@include transition(all, 0.25s, ease-in-out);
-	// 		&:hover{
-	// 			color: lighten($Red, 15%);
-	// 			text-decoration: none;
-	// 			@include transition(all, 0.25s, ease-in-out);
-	// 		}
-	// 	}
-	// 	hr {
-	// 		border-top: 1px solid #000;
-	// 		border-bottom: 1px solid #444;
-	// 		margin: 10px 0;
-	// 	}
-	// 	.total {
-	// 		font-size: 16px;
-	// 		.amount {
-	// 			color: $Teal;
-	// 			font-weight: bold;
-	// 		}
-	// 	}
-	// 	img {
-	// 		height: auto;
-	// 	}
-	// 	.buttons {
-	// 		.checkout {
-	// 			background: darken($LightBlue, 15%);
-	// 			&:hover {
-	// 				background: $Teal;
-	// 			}
-	// 		}
-	// 		.view-cart{
-	// 			background: lighten($OffBlack, 5%);
-	// 			&:hover {
-	// 				background: lighten($OffBlack, 10%);
-	// 				color: #fff;
-	// 			}
-	// 		}
-	// 	}
-	// }
-}
-#BrandFilter {
-	.col-md-12 {
-		padding: 0;
 	}
 }
 .stripe_new_card {
@@ -634,12 +343,12 @@ h1 {
 	display: block;
 	color: $White;
 	background: $LightBlue;
-	@include transition(all 0.2s $authenticMotion);
+	@include transition(all 0.2s ease-in-out);
 	&:hover {
 		color: $White;
 		background: darken($LightBlue, 10%);
 		letter-spacing: 1.5px;
-		@include transition(all 0.2s $authenticMotion);
+		@include transition(all 0.2s ease-in-out);
 	}
 }
 #place_order {
@@ -650,7 +359,7 @@ h1 {
 	margin: 0 auto;
 	position: relative;
 	z-index: 100;
-	margin: 0 auto;
+	margin: 15px auto 0;
 	display: block;
 	color: $White;
 	background: $LightBlue;
@@ -659,11 +368,11 @@ h1 {
 	letter-spacing: 1px;
 	@include border-top-radius(3px);
 	@include border-bottom-radius(3px);
-	@include transition(all 0.2s $authenticMotion);
+	@include transition(all 0.2s ease-in-out);
 	&:hover {
 		color: $White;
 		background: darken($LightBlue, 10%);
-		@include transition(all 0.2s $authenticMotion);
+		@include transition(all 0.2s ease-in-out);
 	}
 }
 .homeSection {
@@ -699,11 +408,11 @@ h1 {
 			margin: 0 0 0 -150px;
 			z-index: 1;
 			opacity: 0;
-			@include transition(all 0.5s $authenticMotion);
+			@include transition(all 0.5s ease-in-out);
 			&.active {
 				bottom: -150px;
 				opacity: 1;
-				@include transition(all 0.5s $authenticMotion);
+				@include transition(all 0.5s ease-in-out);
 			}
 		}
 	}
@@ -729,11 +438,11 @@ h1 {
 		letter-spacing: 1px;
 		display: block;
 		font-family: "Sarina", sans-serif;
-		@include transition(all 0.2s $authenticMotion);
+		@include transition(all 0.2s ease-in-out);
 		&:hover {
 			text-decoration: none;
 			background: #111;
-			@include transition(all 0.2s $authenticMotion);
+			@include transition(all 0.2s ease-in-out);
 			color: #fff;
 		}
 	}
@@ -796,23 +505,27 @@ h1 {
 					background: $LightBlue;
 					font-family: "Sarina", sans-serif;
 					color: #fff;
-					@include transition(all 0.25s $authenticMotion);
+					@include transition(all 0.25s ease-in-out);
 					&:hover {
 						background: lighten($LightBlue, 15%);
-						@include transition(all 0.25s $authenticMotion);
+						@include transition(all 0.25s ease-in-out);
 					}
 				}
 			}
 		}
 	}
 }
-
+.stock {
+	display: none;
+}
 .price {
 	font-family: "Sarina", sans-serif;
-	text-align: center;
 	display: block;
-	font-size: 18px;
+	font-size: 18pt;
 	line-height: normal;
+	color: $Teal;
+	font-weight: bold;
+	text-align: center;
 	del {
 		color: #ccc;
 	}
@@ -834,13 +547,89 @@ h1 {
 	font-family: "fauna one", sans-serif;
 	z-index: 10;
 }
+#BrandListing, #CategoryListing {
+	width: auto;
+	box-sizing: border-box;
+	.PageWrap {
+		background: white;
+		a {
+			width: 24%;
+			display: inline-block;
+			box-sizing: border-box;
+			opacity: 0.6;
+			@include transition(all 0.25s ease-in-out);
+			img {
+				width: 100%;
+			}
+			&:hover {
+				opacity: 1;
+				@include transition(all 0.25s ease-in-out);
+			}
+		}
+	}
+	a {
+		text-align: center;
+	}
+	h3 {
+		margin: 0 0 25px;
+		font-size: 12px;
+		font-family: "fauna one", sans-serif;
+	}
+}
+#CategoryListing {
+	.PageWrap {
+		a {
+			opacity: 1;
+			&:hover {
+				opacity: 0.8;
+				@include transition(all 0.25s ease-in-out);
+			}
+		}
+	}
+}
 .MainWrap{
+	width: 1200px;
+	margin: 0 auto;
 	&#Contact {
 		margin: 0 auto 25px;
 		.PageWrap {
 			min-height: 100px;
+			input, textarea {
+				display: block;
+				line-height: 40px;
+				font-size: 14pt;
+				padding: 0 10px;
+				box-sizing: border-box;
+				width: 100%;
+				border: 1px solid #ebebeb;
+			}
+			textarea {
+				line-height: normal;
+				padding: 10px;
+				min-height: 200px;
+				margin-bottom: 15px;
+			}
+			label {
+				font-size: 10px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+			#security {
+				display: none;
+			}
 			.alert {
 				display: none;
+				vertical-align: top;
+				text-align: center;
+				font-size: 12px;
+				&#failureMessage {
+					button {
+						background: red;
+					}
+				}
+				&#successMessage {
+					background: green;
+				}
 			}
 			label {
 				&.error {
@@ -1018,14 +807,14 @@ h1 {
 				position: absolute;
 				top: 50%;
 				margin: -15px 0 0;
-				@include transition(all 0.25s $authenticMotion);
+				@include transition(all 0.25s ease-in-out);
 				vertical-align: middle;
 				text-align: center;
 				display: block;
 				&:hover{
 					color: lighten($Red, 15%);
 					text-decoration: none;
-					@include transition(all 0.25s $authenticMotion);
+					@include transition(all 0.25s ease-in-out);
 				}
 			}
 		}
@@ -1170,12 +959,12 @@ h1 {
 						padding: 0;
 						img {
 							opacity: 0.75;
-							@include transition(all 0.2s $authenticMotion);
+							@include transition(all 0.2s ease-in-out);
 						}
 						&:hover {
 							img {
 								opacity: 1;
-								@include transition(all 0.2s $authenticMotion);
+								@include transition(all 0.2s ease-in-out);
 							}
 						}
 					}
@@ -1280,100 +1069,6 @@ h1 {
 		}
 	}
 }
-#customer_details {
-	padding: 15px;
-	background: darken($White, 5%);
-	@include border-top-radius(5px);
-	@include border-bottom-radius(5px);
-	border: 1px solid darken($White, 10%);
-	.create-account {
-		display: none;
-	}
-	h3 {
-		margin: 15px 0;
-		&#ship-to-different-address {
-			margin: 0;
-		}
-	}
-	.woocommerce-billing-fields {
-		h3 {
-			margin-top: 0;
-		}
-	}
-	p {
-		margin: 0;
-		label {
-			font-weight: normal;
-			margin: 0;
-			font-size: 13px;
-		}
-		abbr {
-			border: none;
-		}
-		input, select {
-			margin: 0 0 5px;
-			height: 30px;
-			font-size: 9pt;
-		}
-		strong {
-			margin: 0 10px;
-		}
-	}
-	.select2-choice {
-		height: 30px;
-		line-height: 30px;
-	}
-	#ship-to-different-address-checkbox {
-		float: none !important;
-	}
-	.checkbox {
-		text-align: center;
-		margin: 0;
-		line-height: 35px;
-		color: $OffBlack;
-		font-size: 12pt;
-		font-weight: norma;
-		letter-spacing: normal;
-		@include border-top-radius(5px);
-		@include border-bottom-radius(5px);
-		&:hover {
-			cursor: pointer;
-		}
-	}
-	#billing_first_name_field, #shipping_first_name_field {
-		width: 49%;
-		float: left;
-	}
-	#billing_last_name_field, #shipping_last_name_field {
-		width: 49%;
-		float: right;
-	}
-	#billing_address_1_field, #shipping_address_1_field {
-		float: none;
-		clear: both;
-	}
-	#billing_city_field, #shipping_city_field {
-		width: 32%;
-		float: left;
-	}
-	#billing_state_field, #shipping_state_field {
-		width: 32%;
-		float: left;
-		margin: 0 2%;
-	}
-	#billing_postcode_field, #shipping_postcode_field {
-		width: 32%;
-		float: left;
-	}
-	// #billing_email_field {
-	// 	width: 49%;
-	// 	float: left;
-	// }
-	// #billing_phone {
-	// 	width: 49%;
-	// 	float: right;
-	// }
-}
 #RightSidebar { 
 	margin: 25px 0;
 	padding-left: 0;
@@ -1421,19 +1116,19 @@ h1 {
 			border-bottom: 1px solid #ebebeb;
 			padding: 15px 15px 15px;
 			position: relative;
-			@include transition(all 0.25s $authenticMotion);
+			@include transition(all 0.25s ease-in-out);
 			h2 {
 				color: $Purp;
-				@include transition(all 0.25s $authenticMotion);
+				@include transition(all 0.25s ease-in-out);
 			}
 			&:hover {
 				background: #fbfbfb;
-				@include transition(all 0.25s $authenticMotion);
+				@include transition(all 0.25s ease-in-out);
 				.row {
 					.col-md-8 {
 						h2 {
 							color: $Teal;
-							@include transition(all 0.25s $authenticMotion);
+							@include transition(all 0.25s ease-in-out);
 						}
 					}
 				}
@@ -1604,12 +1299,12 @@ footer {
 				letter-spacing: 1px;
 				border-right: 1px solid darken($LightBlue, 5%);
 				padding: 0 10px;
-				@include transition(all 0.25s $authenticMotion);
+				@include transition(all 0.25s ease-in-out);
 				&:hover {
 					margin-left: 5px;
 					text-decoration: none;
 					color: darken($LightBlue, 45%);
-					@include transition(all 0.25s $authenticMotion);
+					@include transition(all 0.25s ease-in-out);
 					i {
 						color: darken($LightBlue, 45%);
 					}
@@ -1641,10 +1336,10 @@ footer {
 		color: darken($LightBlue, 15%);
 		a {
 			color: darken($LightBlue, 45%);
-			@include transition(all 0.25s $authenticMotion);
+			@include transition(all 0.25s ease-in-out);
 			&:hover {
 				color: $LightPurp;
-				@include transition(all 0.25s $authenticMotion);
+				@include transition(all 0.25s ease-in-out);
 			}
 		}
 	}
@@ -2033,60 +1728,23 @@ footer {
 	width: 115%;
 	font-size: 12px;
 }
-
-#BrandListing {
-	.PageWrap{
-		background: $DarkBlue;
-		padding: 25px;
-		.row{
-			margin-bottom: 30px;
-			&:last-child{
-				margin: 0;
-			}
-			ul {
-				li {
-					position: relative;
-					a {
-						display: block;
-						img {
-
-						}
-						h3 {
-							position: absolute;
-							font-family: "Pathway Gothic One", sans-serif;
-							width: 89%;
-							text-align: center;
-							display: none;
-							top: 35%;
-							line-height: normal;
-						}
-						&:hover {
-							img {
-								opacity: 0.15;
-							}
-							h3 {
-								display: block;
-								color: #fff;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
 .related, .upsells {
-	margin: 0 -35px;
-	h3 {
-		background: #fbfbfb;
-		border-top: 1px solid #ebebeb;
-		border-bottom: 1px solid #ebebeb;
+	&:before {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	h2 {
 		text-align: center;
 		font-family: "Sarina", sans-serif;
 		font-size: 21px;
 		font-weight: normal;
-		padding: 5px 0;
-		margin: 0;
+		text-align: center;
+		&:first-child {
+			border-bottom: 1px solid #ebebeb;
+			margin: 0;
+			padding: 25px 0 15px;
+		}
 	}
 	ul {
 		li {

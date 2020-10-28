@@ -1,4 +1,32 @@
 @media (max-width: 767px) {
+	#BrandListing, #CategoryListing {
+		.PageWrap {
+			a {
+				width: 49%;
+			}
+		}
+	}
+	.woocommerce-MyAccount-content {
+		padding: 0;
+	}
+	.woocommerce-message {
+		line-height: normal;
+		a.button {
+			background: none;
+			color: $LightBlue;
+			line-height: normal;
+			letter-spacing: normal;
+			font-family: "Open Sans" , sans-serif;
+			padding: 0;
+			font-size: 18px;
+		}
+	}
+	.hidden-xs {
+		display: none !important;
+	}
+	.visible-xs {
+		display: block !important;
+	}
 	.woocommerce-order-received {
 		table {
 			&.customer_details {
@@ -73,8 +101,8 @@
 		height: auto;
 		z-index: 999;
 		background: none;
-		margin: 0;
 		width: 100%;
+		margin: 0;
 		#MobileLogo {
 			position: relative;
 			display: block;
@@ -103,13 +131,17 @@
 		.navbar-collapse {
 			padding: 0;
 			max-height: 100%;
-			margin: 0 0 -15px;
+			height: 0;
+			overflow: hidden;
+			@include transition(all 0.25s ease-in-out);
 			#MobileDropdownNav {
 				&.nav {
 					background: darken($DarkBlue, 5%);
-					padding: 0 15px 25px;
+					padding: 0;
+					margin: 0;
+					list-style: none;
 					li {
-						margin: 0 -15px;
+						margin: 0;
 						padding: 0 15px;
 						&:last-child {
 							border-bottom: none;
@@ -142,6 +174,7 @@
 								text-align: left;
 								line-height: 40px;
 								padding: 0;
+								font-size: 10pt;
 								&:focus {
 									outline: none;
 								}
@@ -153,6 +186,7 @@
 							}
 						}
 						&#Search {
+							display: none;
 							padding: 15px 15px 0;
 							input {
 								background: $DarkBlue;
@@ -173,18 +207,25 @@
 						}
 						ul {
 							background: lighten($DarkBlue, 5%);
-							margin: 0 -15px;
+							margin: 0;
+							padding: 0;
+							list-style: none;
+							overflow: hidden;
+							height: 0;
+							@include transition(all 0.5s ease-in-out);
 							li {
 								padding: 0;
 								margin: 0;
+								width: 100%;
 								a {
 									border: none;
 									display: block;
-									width: 100%;
+									width: auto;
 									padding: 5px 15px;
 									font-size: 14px;
 									border-bottom: 1px solid $DarkBlue;
 									color: darken($White, 25%);
+									line-height: 30px;
 									&:active {
 										background: $DarkBlue;
 									}
@@ -201,9 +242,15 @@
 			top: 15px;
 			margin: 0 0 15px;
 			&.nav {
+				margin: 25px 0 0;
+				padding: 0;
+				list-style: none;
+				box-sizing: border-box;
+				position: relative;
 				li {
 					vertical-align: middle;
-					padding: 0 1px !important;
+					display: inline-block;
+					box-sizing: border-box;
 					a {
 						font-size: 14px;
 						&:hover {
@@ -213,28 +260,21 @@
 							background: $Purp;
 						}
 					}
-					&#Cart {
-						a {
-							height: 58px;
-							line-height: 18px;
-							vertical-align: baseline;
-							padding: 10px 0 0 0;
-							text-align: center;
-							color: $White;
-						}
-					}
 					&#Menu {
+						width: 49%;
+						box-sizing: border-box;
+						padding-left: 15px;
 						.nav-collapse {
 							background: darken($Purp, 10%);
 							line-height: 58px;
 							padding: 0;
-							text-align: center;
 							color: $White;
 							display: block;
 							background: none;
 							border: none;
 							width: 100%;
 							font-size: 14px;
+							text-align: left;
 							&.collapsed {
 								background: none;
 							}
@@ -243,9 +283,36 @@
 							}
 						}
 					}
+					&#MobileLogo .logo {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						@include transform(translate(-55%,-50%));
+					}
+					&#Cart {
+						width: 48%;
+						text-align: right;
+						box-sizing: border-box;
+						padding-right: 15px;
+						a {
+							height: 58px;
+							text-align: center;
+							line-height: 18px;
+							vertical-align: baseline;
+							padding: 10px 0 0 0;
+							text-align: center;
+							color: $White;
+							.amount {
+								padding-right: 8px;
+							}
+						}
+					}
 				}
 			}
 		}
+	}
+	#primary {
+		margin-top: 50px;
 	}
 	ul.products {
 		background: #fff;
@@ -261,6 +328,9 @@
 					overflow: hidden;
 					text-overflow: ellipsis;
 					margin: 0 5px;
+				}
+				img {
+					margin: 0 !important;
 				}
 			}
 		}
@@ -456,6 +526,9 @@
 				padding: 15px;
 				margin: 0 15px;
 			}
+		}
+		&#Contact {
+			margin-top: 50px;
 		}
 		.cartwrap {
 			padding: 0;
@@ -715,13 +788,28 @@
 		i, .widget_brand_nav, .widget_product_categories {
 			display: none !important;
 		}
+		.widget {
+			&.widget_layered_nav {
+				width: 300px;
+				margin: 5px;
+			}
+		}
+
 	}
 	.post-type-archive-product, .tax-product_brand, .tax-product_cat {
 		#products {
 			ul.products {
 				li.type-product {
-					padding: 5px;
+					padding: 10px;
 					width: 50%;
+					a {
+						img {
+							margin: 0;
+						}
+					}
+					.price {
+						margin-bottom: 0;
+					}
 				}
 			}
 		}
@@ -754,8 +842,111 @@
   	.woocommerce-checkout .PageWrap #order_review {
   		width: 100%;
   	}
+  	.woocommerce {
+  		div.product {
+  			div.images.woocommerce-product-gallery,
+  			div.summary {
+  				width: 100%;
+  				margin: 0;
+  				.sharedaddy {
+  					text-align: center;
+  				}
+  			}
+  		}
+  	}
+  	.woocommerce-cart {
+  		#freeShipMessage {
+  			@include transform(translate(0,40px));
+  		}
+  		.woocommerce-cart-form {
+  			width: 100%;
+  			.shop_table {
+  				padding: 0;
+  				tr {
+  					th {
+  						&.product-quantity,
+  						&.product-subtotal {
+  							display: none;
+  						}
+  					}
+  					td {
+  						&.product-price,
+  						&.product-quantity {
+  							display: none;
+  						}
+  					}
+  				}
+  				.coupon {
+  					text-align: center;
+  					input {
+  						width: 150px;
+  					}
+  				}
+  			}
+  		}
+  		.cart-collaterals {
+  			width: 100%;
+  			margin-top: 25px;
+  			h2 {
+  				color: $OffBlack;
+  				text-align: center;
+  			}
+  		}
+  	}
+  	.woocommerce-checkout {
+  		margin-top: 0;
+  		#freeShipMessage {
+  			@include transform(translate(0,40px));
+  		}
+  		form.checkout_coupon {
+  			width: 100%;
+  			p:first-child {
+  				display: none;
+  			}
+  		}
+  		form.login {
+  			width: 100%;
+  		}
+  		#customer_details {
+  			box-sizing: border-box;
+  			.create-account {
+  				display: none;
+  			}
+  		}
+  		.shop_table {
+  			margin: 25px 0;
+  		}
+  		#payment {
+  			margin-bottom: 0;
+  			ul.payment_methods {
+  				li {
+  					img.stripe-icon {
+  						&.stripe-jcb-icon,
+  						&.stripe-diners-icon {
+  							display: none;
+  						}
+  					}
+  					.woocommerce-SavedPaymentMethods-saveNew {
+  						position: relative;
+  						margin-top: 15px;
+  						input {
+  							position: absolute;
+  							top: 0;
+  							left: 0;
+  						}
+  						label[for="wc-stripe-new-payment-method"] {
+	  						padding-left: 25px;
+	  						display: inline-block !important;
+	  						line-height: normal;
+	  					}
+  					}
+  				}
+  			}
+  		}
+  	}
   	footer {
   		margin-top: 15px;
+  		padding-top: 15px;
   		#menu-footer-menu {
   			li {
   				display: block;
@@ -776,12 +967,30 @@
   			margin-top: 15px;
   		}
   		#legal {
-  			margin-top: 15px;
+  			margin-top: 25px;
+  			padding: 0 25px 35px;
+  			box-sizing: border-box;
   		}
   		#weaccept {
   			margin: 15px auto;
+  			&:before {
+  				content:"";
+  				clear: both;
+  				display: block;
+  			}
+  			img {
+  				margin-top: 15px;
+  			}
   		}
   	}
+}
+@media (min-width:768px) {
+	.hidden-xs {
+		display: block !important;
+	}
+	.visible-xs {
+		display: none !important;
+	}
 }
 @media (max-width: 991px) {
 	#RightSidebar {
@@ -800,29 +1009,25 @@
 	.woocommerce-page div.product div.images {
 		width: 100%;
 	}
-	.post-type-archive-product, .tax-product_brand, .tax-product_cat {
-		#products {
-			ul.products {
-				li.type-product {
-					padding: 5px;
-					width: 25%;
-				}
-			}
-		}
-	}
 }
 @media (min-width: 1024px) {
-	.post-type-archive-product, .tax-product_brand, .tax-product_cat {
-		#products {
-			ul.products {
-				li.type-product {
-					padding: 5px;
-					width: 20%;
-				}
+}
+@media (max-width: 1200px) {
+	.MainWrap {
+		width: 100%;
+	}
+	.page .MainWrap {
+		width: 100%;
+		margin-top: 50px;
+	}
+	.single-product {
+		#wrapper {
+			width: 100%;
+			div.product {
+				width: 100%;
 			}
 		}
 	}
 }
 @media (min-width: 1400px) {
-
 }

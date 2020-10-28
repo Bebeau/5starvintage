@@ -24,30 +24,30 @@
     &.next {
         right: 0;
         @include transform(translate(100px, 0));
-        @include transition(all 0.2s $authenticMotion);
+        @include transition(all 0.2s ease-in-out);
         &.in {
             @include transform(translate(0, 0));
-            @include transition(all 0.2s $authenticMotion);
+            @include transition(all 0.2s ease-in-out);
         }
         &:before {
             display: none;
         }
         &:hover {
-            @include transition(all 0.2s $authenticMotion);
+            @include transition(all 0.2s ease-in-out);
         }
     }
     &.prev {
         @include transform(translate(-100px, 0));
-        @include transition(all 0.2s $authenticMotion);
+        @include transition(all 0.2s ease-in-out);
         &.in {
             @include transform(translate(0, 0));
-            @include transition(all 0.2s $authenticMotion);
+            @include transition(all 0.2s ease-in-out);
         }
         &:before {
             display: none;
         }
         &:hover {
-            @include transition(all 0.2s $authenticMotion);
+            @include transition(all 0.2s ease-in-out);
         }
     }
 }
@@ -131,24 +131,24 @@
                 position: absolute;
                 margin: -15px 0 0;
                 @include transform(scale(0));
-                @include transition(all, 0.2s, ease-in-out);
+                @include transition(all 0.2s ease-in-out);
             }
             img {
                 position: relative;
                 display: block;
                 max-width: 100%;
                 @include transform(scale(1));
-                @include transition(all, 0.2s, ease-in-out);
+                @include transition(all 0.2s ease-in-out);
             }
             &:hover {
                 img {
                     @include transform(scale(1.2));
                     opacity: 0.25;
-                    @include transition(all, 0.2s, ease-in-out);
+                    @include transition(all 0.2s ease-in-out);
                 }
                 h3 {
                     @include transform(scale(1));
-                    @include transition(all, 0.2s, ease-in-out);
+                    @include transition(all 0.2s ease-in-out);
                 }
             }
         }

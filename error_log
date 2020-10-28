@@ -1,1 +1,4 @@
 [19-Jul-2015 13:11:34 Europe/Moscow] PHP Fatal error:  Call to undefined function get_header() in /home/starvint/public_html/5starvintage.com/wp-content/themes/5starvintgae/404.php on line 1
+[22-May-2020 08:38:37 Europe/Moscow] PHP Fatal error:  Call to undefined function add_filter() in /home/starvint/public_html/5starvintage.com/wp-content/themes/5starvintage/functions.php on line 6
+[28-Jun-2020 06:50:40 Europe/Moscow] PHP Fatal error:  Call to undefined function get_header() in /home/starvint/public_html/5starvintage.com/wp-content/themes/5starvintage/index.php on line 1
+[11-Sep-2020 08:22:18 Europe/Moscow] PHP Fatal error:  Call to undefined function get_header() in /home/starvint/public_html/5starvintage.com/wp-content/themes/5starvintage/index.php on line 1
